@@ -1,0 +1,427 @@
+/* 
+ * mattrude.org - Main Stylesheet
+ * A minimalist black and white design with mint green accents
+ */
+
+/* Base styles and variables */
+:root {
+    --color-background: #ffffff;
+    --color-text: #000000;
+    --color-accent: #98FB98; /* Mint Green */
+    --color-light-gray: #f5f5f5;
+    --color-dark-gray: #333333;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Reset and base elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+p, ul, ol {
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition: all 0.2s ease;
+}
+
+a:hover, a:focus {
+    background-color: var(--color-accent);
+    text-decoration: none;
+}
+
+/* Layout */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+header {
+    padding: 2rem 0;
+    border-bottom: 4px solid var(--color-accent);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+nav li {
+    margin-left: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0;
+}
+
+nav a.active {
+    border-bottom: 3px solid var(--color-accent);
+}
+
+/* Footer */
+footer {
+    padding: 2rem 0;
+    background-color: var(--color-light-gray);
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+    margin-top: 3rem;
+}
+
+/* Homepage - Blog listing */
+.blog-posts {
+    margin-top: 3rem;
+}
+
+.intro {
+    margin: 4rem 0;
+}
+
+.post {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.post:last-child {
+    border-bottom: none;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: var(--color-dark-gray);
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    font-weight: 600;
+}
+
+/* Individual blog post */
+.blog-post article {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.post-header {
+    margin-bottom: 2rem;
+}
+
+/* Blog post content styling - enhanced lists */
+.post-content ul {
+    padding-left: 2.5rem !important;      /* Increase left padding for better indentation */
+    margin-bottom: 2rem !important;       /* Add more space after the list */
+    margin-top: 1rem !important;          /* Add space before the list */
+    list-style-position: outside !important;  /* Ensures bullets are outside the text block */
+}
+
+.post-content ul li {
+    margin-bottom: 0.75rem !important;    /* Space between list items */
+    line-height: 1.6 !important;          /* Consistent line height with paragraph text */
+    position: relative !important;        /* For potential custom bullet styling */
+    padding-left: 0.5rem !important;      /* Additional padding between bullet and text */
+}
+
+/* Optional: Style the bullet points with mint green color */
+.post-content ul li::marker {
+    color: var(--color-accent) !important; /* Use your mint green accent color */
+}
+
+/* Feature list specific styling */
+.feature-list {
+    padding-left: 2.5rem !important;      /* Larger indentation for feature lists */
+    margin-bottom: 2rem !important;       /* Extra space after the list */
+    margin-top: 1rem !important;          /* Extra space before the list */
+    list-style-position: outside !important;  /* Ensures bullets are outside the text block */
+}
+
+.feature-list li {
+    margin-bottom: 0.75rem !important;    /* More space between feature items */
+    padding-left: 0.5rem !important;      /* Additional padding between bullet and text */
+    position: relative !important;        /* For custom bullet styling */
+}
+
+.feature-list li::marker {
+    color: var(--color-accent) !important; /* Mint green bullets */
+    font-weight: bold !important;         /* Make bullets more prominent */
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-light-gray);
+}
+
+/* Resume page */
+.contact-info {
+  margin-top: 1.5rem;  /* Adds space above the element */
+}
+
+.resume-header {
+    margin-bottom: 2.5rem;
+}
+
+.education-item, .experience-item {
+    margin-bottom: 2rem;
+}
+
+.experience-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.job-title {
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.job-section {
+    margin-top: 1.5rem;
+}
+
+.job-section h5 {
+    margin-bottom: 0.5rem;
+}
+
+.resume ul {
+    padding-left: 1.5rem;
+}
+
+.resume ul li {
+    margin-bottom: 0.5rem;
+}
+
+.work-with {
+    background-color: var(--color-light-gray);
+    padding: 2rem;
+    border-left: 5px solid var(--color-accent);
+    margin-top: 3rem;
+}
+
+/* Tag filtering */
+.tags-filter {
+    margin: 2rem 0;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tag {
+    background-color: var(--color-light-gray);
+    border: 1px solid var(--color-light-gray);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tag:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.tag.active {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* Loading placeholder */
+.loading-placeholder,
+.loading-more,
+.post-content-placeholder {
+    padding: 2rem;
+    text-align: center;
+    color: var(--color-dark-gray);
+    background-color: var(--color-light-gray);
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.loading-more,
+.post-content-placeholder {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+/* Blog navigation styling */
+.nav-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-dark-gray);
+}
+
+.nav-title {
+    font-weight: 600;
+}
+
+.post-navigation a {
+    display: inline-block;
+    padding: 0.5rem;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.post-navigation a:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* Inline icon styling */
+.inline-icon {
+    height: 1em;
+    vertical-align: middle;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+/* RSS Feed icon */
+.rss-link {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.rss-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.25rem;
+    fill: var(--color-accent);
+}
+
+/* Service Cards */
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.service-card {
+    background-color: var(--color-light-gray);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 4px solid var(--color-accent);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h4 {
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.service-card p {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+    
+    nav li {
+        margin: 0.5rem 0;
+        margin-left: 0;
+    }
+    
+    body {
+        font-size: 16px;
+    }
+    
+    .tags-container {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+    
+    .tag {
+        white-space: nowrap;
+    }
+    
+    .service-cards {
+        grid-template-columns: 1fr;
+    }
+}

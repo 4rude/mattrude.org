@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matt Rude's Blog</title>
+    <description>Practical guides, tutorials, and insights on building powerful technology solutions without the enterprise price tag. Making technology accessible for everyone.</description>
+    <link>https://mattrude.org</link>
+    <atom:link href="https://mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>© 2025 Matt Rude. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 28 Mar 2025 16:23:29 -0500</lastBuildDate>
+    <category>Technology</category>
+    <category>Software Development</category>
+    <category>Accessibility</category>
+    <item>
+      <title>Launching My Personal Website</title>
+      <link>https://mattrude.org/blog/posts/2025-03-25-launching-my-personal-website.html</link>
+      <guid>https://mattrude.org/blog/posts/2025-03-25-launching-my-personal-website.html</guid>
+      <pubDate>Thu, 27 Mar 2025 19:00:00 -0500</pubDate>
+      <description><![CDATA[
+        <p>Today marks an exciting milestone. I have finally launched my personal website!</p>
+                
+                <p>Built with vanilla HTML, CSS, and JavaScript on Cloudflare's infrastructure, this entire site costs less than $8 per year to maintain. A comparable WordPress site might cost $200/year including domain and security certificates, plus additional fees for plugins and ongoing maintenance. This cost disparity reflects a pattern I have observed throughout my career as a software developer and data engineer: the significant gap between vendor pricing and actual implementation costs.</p>
+                
+                <p>This technology affordability gap scales dramatically:</p>
+                
+                <ul class="feature-list">
+                    <li>Small organizations often spend hundreds annually on basic websites with limited customization</li>
+                    <li>Mid-tier businesses invest thousands in proprietary systems while using just a fraction of their features</li>
+                    <li>Enterprises commit to huge contracts for capabilities that could be built for a fraction of the cost</li>
+                </ul>
+                
+                <p>One organization I worked with saved $2400 annually and improved data reliability by replacing their existing synchronization process with a custom solution accelerated by AI tools. This exemplifies how modern development approaches can make specialized solutions more accessible than ever.</p>
+                
+                <h3>My Mission: Democratizing Technology</h3>
+                
+                <p>My vision is to bridge this gap by challenging two common assumptions: that powerful technology requires enterprise-level budgets, and that implementing custom solutions requires specialized expertise. The evidence increasingly suggests neither is true.</p>
+                
+                <p>I am creating practical resources that empower everyone, regardless of technical background or budget constraints, to implement robust technology systems by leveraging:</p>
+                
+                <ul class="feature-list">
+                    <li>Affordable infrastructure with generous free tiers (like Cloudflare<img src="https://mattrude.org/assets/images/cloudflare-icon.svg" alt="Cloudflare" class="inline-icon" style="height: 1em; vertical-align: middle; margin: 0 2px;">)</li>
+                    <li>Open source solutions that rival commercial offerings</li>
+                    <li>Clean, simple code patterns that are easier to maintain</li>
+                    <li>Secure design principles that protect data without specialized knowledge</li>
+                    <li>AI-assisted development tools that amplify basic technical skills</li>
+                </ul>
+                
+                <p>This approach creates better, more tailored solutions that precisely match your needs rather than forcing your processes to conform to off-the-shelf software limitations.</p>
+                
+                <h3>What to Expect</h3>
+                
+                <p>To put these principles into action, I'm developing a series of practical resources that progress from fundamental to advanced implementations. Here's what you can look forward to in the coming weeks and months:</p>
+                
+                <ul class="feature-list">
+                    <li>Practical Applications of AI Tools for Non-Technical Users</li>
+                    <li>Essential Cybersecurity Practices for Small and Medium Organizations</li>
+                    <li>Custom Survey and Data Collection Systems</li>
+                    <li>Lightweight CRM Solutions for Small Organizations</li>
+                    <li>Integration Strategies for Existing Business Tools</li>
+                    <li>Data Visualization Tools and Dashboards</li>
+                </ul>
+                
+                <p>These tutorials won't assume extensive coding experience—if you can follow instructions and have basic computer literacy, you can implement these solutions. I will emphasize how modern code patterns combined with AI tools can make development accessible to non-specialists while creating technology that truly serves everyone's needs.</p>
+                
+                <p>While these resources will empower many readers to build their own solutions, I recognize that some situations call for more direct collaboration. That's why I am also offering several ways we can work together...</p>
+                
+                <h3>Working Together</h3>
+
+                <!-- NEW: Reformatted as cards for better visual balance -->
+                <div class="service-cards">
+                    <div class="service-card">
+                        <h4>Full-Service Development</h4>
+                        <p>We define your requirements together, then I handle all development and hosting. You get a complete, worry-free solution with ongoing support—ideal if you want to focus on your core mission without technical concerns.</p>
+        
+        <p><a href="https://mattrude.org/blog/posts/2025-03-25-launching-my-personal-website.html">View original post</a></p>
+      ]]></description>
+      <category>Introduction</category>
+    </item>
+  </channel>
+</rss>
