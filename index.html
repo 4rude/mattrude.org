@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Rude | Software Developer</title>
+    <meta name="description" content="Matt Rude - Software Developer and Data Engineer. Thoughts on technology, software development, and making technology accessible to everyone.">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml" />
+    
+    <!-- Favicon and app icons -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Matt Rude</h1>
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/resume/">Resume/CV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="intro">
+            <h2>Software Developer | Data Engineer</h2>
+            <p>I build accessible, high-performance technology solutions that democratize digital capabilities for individuals and small organizations. Through tutorials, guides, and practical insights, I help you implement powerful systems without specialized technical expertise.</p>
+        </section>
+        
+        <!-- Tag filtering section, inspired by Simon's website: https://simonwillison.net/' -->
+        <section class="tags-filter">
+            <h3>Filter by Topic</h3>
+            <div class="tags-container">
+                <button class="tag active" data-tag="all">All Posts</button>
+                <!-- More tags will be added dynamically from the JSON metadata file-->
+            </div>
+        </section>
+        
+        <section class="blog-posts">
+            <h2>Latest Posts</h2>
+            <div class="post-list">
+                <div class="loading-placeholder">Loading posts...</div>
+                <!-- Posts will be loaded dynamically by JavaScript -->
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Matt Rude. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Only include blog.js since we've made it self-initializing -->
+    <script src="/assets/js/blog.js"></script>
+</body>
+</html>

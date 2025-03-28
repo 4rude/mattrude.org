@@ -1,0 +1,89 @@
+<!--
+BLOG_META
+{
+  "title": "Your Post Title",
+  "date": "YYYY-MM-DD",
+  "description": "A brief description of your post for the homepage and RSS feed",
+  "tags": ["tag1", "tag2"]
+}
+END_BLOG_META
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Post Title | Matt Rude</title>
+    <meta name="description" content="A brief description of your post for the homepage and RSS feed">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml" />
+    
+    <!-- Favicon and app icons -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Matt Rude</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/resume/">Resume/CV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container blog-post">
+        <article>
+            <header class="post-header">
+                <h2>Your Post Title</h2>
+                <div class="post-meta">YYYY-MM-DD</div>
+            </header>
+            
+            <div class="post-content">
+                <!-- Your content goes here -->
+                <p>This is the first paragraph of your blog post. Write your content here.</p>
+                
+                <h3>First Section Heading</h3>
+                
+                <p>More content goes here...</p>
+                
+                <ul class="feature-list">
+                    <li>Feature or point one</li>
+                    <li>Feature or point two</li>
+                    <li>Feature or point three</li>
+                </ul>
+                
+                <h3>Second Section Heading</h3>
+                
+                <p>Conclusion paragraph...</p>
+                
+                <p>— Matt</p>
+            </div>
+        </article>
+        
+        <div class="post-navigation">
+            <div class="prev-post">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <div class="next-post">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Matt Rude. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Only include blog.js since we've made it self-initializing -->
+    <script src="/assets/js/blog.js"></script>
+</body>
+</html>
