@@ -91,6 +91,7 @@ function generateFeed() {
 function createItemXml(post) {
   const pubDate = formatRSSDate(new Date(post.date));
   const link = `${SITE_URL}/blog/posts/${post.file}`;
+  const postUrl = `/blog/posts/${post.file}`;
   
   // Read the full blog post HTML
   const postPath = path.join(POSTS_DIR, post.file);
@@ -105,7 +106,7 @@ function createItemXml(post) {
     
     // Convert relative URLs to absolute URLs
     if (extractedContent) {
-      fullContent = convertRelativeUrls(extractedContent, SITE_URL);
+      fullContent = convertRelativeUrls(extractedContent, SITE_URL, postUrl);
     } else {
       console.warn(`Could not extract content for post: ${post.file}, using description instead.`);
       fullContent = `<p>${post.description}</p>`;
@@ -142,31 +143,35 @@ function createItemXml(post) {
  * 
  * @param {string} html - HTML content with relative URLs
  * @param {string} baseUrl - Base URL of the website
+ * @param {string} postUrl - URL of the current post (for resolving relative paths)
  * @returns {string} HTML content with absolute URLs
  */
-function convertRelativeUrls(html, baseUrl) {
+function convertRelativeUrls(html, baseUrl, postUrl) {
   // Remove trailing slash from baseUrl if present
   baseUrl = baseUrl.replace(/\/$/, '');
+  
+  // Get the post's directory path for resolving relative URLs
+  const postDir = path.dirname(postUrl);
   
   // Process different types of attributes that might contain URLs
   // 1. Image sources
   html = html.replace(/(<img[^>]+src=["'])([^"']+)(["'][^>]*>)/gi, (match, prefix, url, suffix) => {
-    return prefix + resolveUrl(url, baseUrl) + suffix;
+    return prefix + resolveUrl(url, baseUrl, postDir) + suffix;
   });
   
   // 2. Hyperlinks
   html = html.replace(/(<a[^>]+href=["'])([^"']+)(["'][^>]*>)/gi, (match, prefix, url, suffix) => {
-    return prefix + resolveUrl(url, baseUrl) + suffix;
+    return prefix + resolveUrl(url, baseUrl, postDir) + suffix;
   });
   
   // 3. Other media elements (video, audio, embed, source)
   html = html.replace(/(<(?:video|audio|embed|source)[^>]+src=["'])([^"']+)(["'][^>]*>)/gi, (match, prefix, url, suffix) => {
-    return prefix + resolveUrl(url, baseUrl) + suffix;
+    return prefix + resolveUrl(url, baseUrl, postDir) + suffix;
   });
   
   // 4. CSS background images in inline styles
   html = html.replace(/(style=["'][^"']*background(?:-image)?:\s*url\(["']?)([^"')]+)(["']?\)[^"']*["'])/gi, (match, prefix, url, suffix) => {
-    return prefix + resolveUrl(url, baseUrl) + suffix;
+    return prefix + resolveUrl(url, baseUrl, postDir) + suffix;
   });
   
   return html;
@@ -177,9 +182,10 @@ function convertRelativeUrls(html, baseUrl) {
  * 
  * @param {string} url - The URL to resolve
  * @param {string} baseUrl - The base URL of the website
+ * @param {string} postDir - The directory path of the current post
  * @returns {string} The absolute URL
  */
-function resolveUrl(url, baseUrl) {
+function resolveUrl(url, baseUrl, postDir) {
   // Skip URLs that are already absolute
   if (url.match(/^(https?:)?\/\//i)) {
     return url;
@@ -201,9 +207,8 @@ function resolveUrl(url, baseUrl) {
   }
   
   // Handle relative URLs (not starting with /)
-  // For blog posts, we need to navigate up from /blog/posts/ to the root
-  // This is a simplified approach that assumes all blog posts are at the same level
-  return baseUrl + '/blog/posts/' + url;
+  // For images and resources in blog posts, resolve relative to the post's directory
+  return baseUrl + path.join(postDir, url).replace(/\\/g, '/');
 }
 
 /**

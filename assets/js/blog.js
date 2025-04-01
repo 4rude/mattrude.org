@@ -13,16 +13,13 @@ window.Blog = {
   init: function() {
     console.log('Initializing blog functionality');
     // Check if we're on a page with blog posts
+    // Using optional chaining for cleaner code
     const postList = document.querySelector('.post-list');
-    if (postList) {
-      this.loadPosts(postList);
-    }
+    postList && this.loadPosts(postList);
     
     // Check if we're on an individual blog post page
     const blogPost = document.querySelector('.blog-post');
-    if (blogPost) {
-      this.setupPostNavigation();
-    }
+    blogPost && this.setupPostNavigation();
   },
   
   /**
@@ -41,7 +38,8 @@ window.Blog = {
       const day = parseInt(dateComponents[2], 10);
       
       const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      return `${months[monthIndex]} ${day}, ${year}`;
+      // Using nullish coalescing for safer access
+      return `${months[monthIndex] ?? 'Unknown'} ${day ?? '??'}, ${year ?? '????'}`;
     } else {
       // Fallback for unexpected date formats
       try {
@@ -88,16 +86,9 @@ window.Blog = {
       const data = await response.json();
       console.log('Loaded post data:', data);
       
-      // Remove any loading indicators
-      const loadingPlaceholder = container.querySelector('.loading-placeholder');
-      if (loadingPlaceholder) {
-        container.removeChild(loadingPlaceholder);
-      }
-      
-      const loadingMore = container.querySelector('.loading-more');
-      if (loadingMore) {
-        container.removeChild(loadingMore);
-      }
+      // Remove any loading indicators using optional chaining
+      container.querySelector('.loading-placeholder')?.remove();
+      container.querySelector('.loading-more')?.remove();
       
       // Calculate start and end indices for pagination
       const startIndex = (page - 1) * perPage;
@@ -140,17 +131,27 @@ window.Blog = {
     // Format the date without timezone conversion
     const formattedDate = this.formatDate(post.date);
     
+    // Create the date HTML with optional edit date
+    let dateHtml = `<span class="publish-date">${formattedDate}</span>`;
+    if (post.edited && post.edited.trim()) {
+      dateHtml += `
+        <span class="edit-divider">·</span>
+        <span class="edit-date">Edited: ${post.edited}</span>
+      `;
+    }
+    
     // Create article element
     const article = document.createElement('article');
     article.className = 'post';
-    if (post.tags && post.tags.length) {
+    // Using optional chaining for cleaner tag handling
+    if (post.tags?.length) {
       article.dataset.tags = post.tags.join(',');
     }
     
     // Add a loading placeholder first
     article.innerHTML = `
       <h3><a href="/blog/posts/${post.file}">${post.title}</a></h3>
-      <div class="post-meta">${formattedDate}</div>
+      <div class="post-meta">${dateHtml}</div>
       <div class="post-content-placeholder">Loading content...</div>
     `;
     
@@ -181,21 +182,22 @@ window.Blog = {
           postContent = `<p>${post.description}</p>`;
         }
         
-        // Update the placeholder with the full content
+        // Update the placeholder with the full content - using optional chaining
         const placeholder = article.querySelector('.post-content-placeholder');
         if (placeholder) {
           const contentDiv = document.createElement('div');
           contentDiv.className = 'post-content';
           contentDiv.innerHTML = postContent;
-          placeholder.parentNode.replaceChild(contentDiv, placeholder);
+          placeholder.parentNode?.replaceChild(contentDiv, placeholder);
         }
       })
       .catch(error => {
         console.error('Error loading full post content:', error);
         // Fallback to description if full content can't be loaded
+        // Using optional chaining and nullish coalescing
         const placeholder = article.querySelector('.post-content-placeholder');
         if (placeholder) {
-          placeholder.textContent = post.description;
+          placeholder.textContent = post.description ?? 'No content available';
         }
       });
   },
@@ -207,6 +209,7 @@ window.Blog = {
   setupTagFiltering: function(posts) {
     console.log('Setting up tag filtering');
     const tagsContainer = document.querySelector('.tags-container');
+    // Early return with clearer reason
     if (!tagsContainer) {
       return; // No tags container found
     }
@@ -214,7 +217,8 @@ window.Blog = {
     // Collect all unique tags
     const uniqueTags = new Set();
     posts.forEach(post => {
-      if (post.tags && Array.isArray(post.tags)) {
+      // Using optional chaining with Array check
+      if (Array.isArray(post.tags) && post.tags?.length) {
         post.tags.forEach(tag => uniqueTags.add(tag));
       }
     });
@@ -259,7 +263,8 @@ window.Blog = {
       if (tag === 'all') {
         post.style.display = 'block';
       } else {
-        const postTags = post.dataset.tags ? post.dataset.tags.split(',') : [];
+        // Using nullish coalescing for default empty array
+        const postTags = post.dataset.tags?.split(',') ?? [];
         post.style.display = postTags.includes(tag) ? 'block' : 'none';
       }
     });
@@ -339,30 +344,26 @@ window.Blog = {
       const prevLink = navContainer.querySelector('.prev-post');
       const nextLink = navContainer.querySelector('.next-post');
       
-      // Previous post (newer)
+      // Previous post (newer) - using optional chaining
       if (currentIndex > 0) {
         const prevPost = data.posts[currentIndex - 1];
-        if (prevLink) {
-          prevLink.innerHTML = `
-            <a href="/blog/posts/${prevPost.file}">
-              <span class="nav-label">Newer Post</span>
-              <span class="nav-title">${prevPost.title}</span>
-            </a>
-          `;
-        }
+        prevLink?.insertAdjacentHTML('beforeend', `
+          <a href="/blog/posts/${prevPost.file}">
+            <span class="nav-label">Newer Post</span>
+            <span class="nav-title">${prevPost.title}</span>
+          </a>
+        `);
       }
       
-      // Next post (older)
+      // Next post (older) - using optional chaining
       if (currentIndex < data.posts.length - 1) {
         const nextPost = data.posts[currentIndex + 1];
-        if (nextLink) {
-          nextLink.innerHTML = `
-            <a href="/blog/posts/${nextPost.file}">
-              <span class="nav-label">Older Post</span>
-              <span class="nav-title">${nextPost.title}</span>
-            </a>
-          `;
-        }
+        nextLink?.insertAdjacentHTML('beforeend', `
+          <a href="/blog/posts/${nextPost.file}">
+            <span class="nav-label">Older Post</span>
+            <span class="nav-title">${nextPost.title}</span>
+          </a>
+        `);
       }
       
     } catch (error) {

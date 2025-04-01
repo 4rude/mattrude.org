@@ -142,6 +142,19 @@ footer {
     font-size: 0.9rem;
     color: var(--color-dark-gray);
     margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.edit-divider {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+.edit-date {
+    font-style: italic;
 }
 
 .read-more {

@@ -81,9 +81,16 @@ function extractMetadata(content, filename) {
   
   if (metaMatch && metaMatch[1]) {
     try {
-      const metadata = JSON.parse(metaMatch[1]);
-      metadata.file = filename;
-      return metadata;
+    const metadata = JSON.parse(metaMatch[1]);
+    metadata.file = filename;
+    
+    // Check for edit date in HTML content
+    const editDateMatch = content.match(/<span class="edit-date">Edited:\s*(.*?)<\/span>/i);
+    if (editDateMatch && editDateMatch[1]) {
+      metadata.edited = editDateMatch[1].trim();
+    }
+    
+    return metadata;
     } catch (e) {
       console.warn(`Error parsing metadata in ${filename}:`, e);
     }
@@ -93,8 +100,11 @@ function extractMetadata(content, filename) {
   console.warn(`Using fallback metadata extraction for ${filename}`);
   
   const titleMatch = content.match(/<title>(.*?)<\/title>/);
-  const dateMatch = content.match(/<div class="post-meta">(.*?)<\/div>/);
+  const dateMatch = content.match(/<div class="post-meta">([\s\S]*?)<\/div>/);
   const descriptionMatch = content.match(/<meta name="description" content="(.*?)"\s*\/?>/);
+  
+  // Try to extract edited date from HTML content
+  const editDateMatch = content.match(/<span class="edit-date">Edited:\s*(.*?)<\/span>/i);
   
   // Extract date from filename (format: YYYY-MM-DD-title.html)
   const dateFromFilename = filename.match(/^(\d{4}-\d{2}-\d{2})/);
@@ -104,8 +114,9 @@ function extractMetadata(content, filename) {
       ? titleMatch[1].replace(' | Matt Rude', '') 
       : filename.replace('.html', '').replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/-/g, ' '),
     date: dateMatch 
-      ? dateMatch[1] 
+      ? dateMatch[1].trim().split('·')[0].trim() // Extract just the first date if multiple exist
       : (dateFromFilename ? dateFromFilename[1] : 'Unknown date'),
+    edited: editDateMatch ? editDateMatch[1].trim() : '', // Add extracted edit date
     description: descriptionMatch 
       ? descriptionMatch[1] 
       : 'No description available',
