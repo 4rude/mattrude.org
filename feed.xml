@@ -7,7 +7,7 @@
     <atom:link href="https://mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <copyright>© 2025 Matt Rude. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 28 Mar 2025 16:23:29 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 01 Apr 2025 17:32:53 -0500</lastBuildDate>
     <category>Technology</category>
     <category>Software Development</category>
     <category>Accessibility</category>
@@ -19,7 +19,7 @@
       <description><![CDATA[
         <p>Today marks an exciting milestone. I have finally launched my personal website!</p>
                 
-                <p>Built with vanilla HTML, CSS, and JavaScript on Cloudflare's infrastructure, this entire site costs less than $8 per year to maintain. A comparable WordPress site might cost $200/year including domain and security certificates, plus additional fees for plugins and ongoing maintenance. This cost disparity reflects a pattern I have observed throughout my career as a software developer and data engineer: the significant gap between vendor pricing and actual implementation costs.</p>
+                <p>Built with vanilla HTML, CSS, and JavaScript on Cloudflare's infrastructure, this entire site costs less than $8 USD per year to maintain. A comparable WordPress site might cost $200 USD/year including domain and security certificates, plus additional fees for plugins and ongoing maintenance. This cost disparity reflects a pattern I have observed throughout my career as a software developer and data engineer: the significant gap between vendor pricing and actual implementation costs.</p>
                 
                 <p>This technology affordability gap scales dramatically:</p>
                 
@@ -29,7 +29,7 @@
                     <li>Enterprises commit to huge contracts for capabilities that could be built for a fraction of the cost</li>
                 </ul>
                 
-                <p>One organization I worked with saved $2400 annually and improved data reliability by replacing their existing synchronization process with a custom solution accelerated by AI tools. This exemplifies how modern development approaches can make specialized solutions more accessible than ever.</p>
+                <p>One organization I worked with saved $2400 USD annually and improved data reliability by replacing their existing synchronization process with a custom solution accelerated by AI tools. This exemplifies how modern development approaches can make specialized solutions more accessible than ever.</p>
                 
                 <h3>My Mission: Democratizing Technology</h3>
                 
