@@ -3,14 +3,123 @@
  * A minimalist black and white design with mint green accents
  */
 
+/* Posts connector - horizontal dashed line (now removed) */
+.blog-posts h2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Prevent spillover */
+}
+
+.posts-connector {
+    position: relative;
+    flex-grow: 1; /* Take all available space */
+    margin-left: 15px; /* Space between heading text and start of connector */
+}
+
+/* Horizontal line - removed dashed line */
+.posts-connector::before {
+    content: none; /* Remove the dashed line */
+}
+
 /* Base styles and variables */
 :root {
+    /* Current variables */
     --color-background: #ffffff;
     --color-text: #000000;
     --color-accent: #98FB98; /* Mint Green */
     --color-light-gray: #f5f5f5;
     --color-dark-gray: #333333;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    /* New variables */
+    --color-accent-light: rgba(152, 251, 152, 0.3); /* Lighter mint green for hover states */
+    --color-accent-dark: #74d874; /* Darker mint green for active states */
+    --color-border: #eaeaea;
+    --color-shadow: rgba(0, 0, 0, 0.05);
+    
+    /* Typography */
+    --font-size-small: 0.875rem;
+    --font-size-base: 1.125rem;
+    --font-size-large: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+    
+    /* Border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* Page transition styles */
+.page-transition {
+  transition: opacity 0.3s ease;
+}
+
+body.loading .page-transition {
+  opacity: 0;
+}
+
+/* Back to Top button styles */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  border: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+  z-index: 1000;
+  box-shadow: 0 2px 5px var(--color-shadow);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: var(--color-accent-dark);
+}
+
+/* Card component styles */
+.card {
+  background-color: var(--color-background);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  padding: var(--space-lg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.card-accent-left {
+  border-left: 4px solid var(--color-accent);
+}
+
+.card-accent-top {
+  border-top: 4px solid var(--color-accent);
 }
 
 /* Reset and base elements */
@@ -277,6 +386,7 @@ footer {
     margin-top: 1rem;
 }
 
+/* Updated tag selection styles */
 .tag {
     background-color: var(--color-light-gray);
     border: 1px solid var(--color-light-gray);
@@ -284,17 +394,33 @@ footer {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.tag:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
+.tag::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: var(--color-accent-light);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: -1;
+}
+
+.tag:hover::before {
+    width: 150%;
+    height: 150%;
 }
 
 .tag.active {
     background-color: var(--color-accent);
-    border-color: var(--color-accent);
+    border-color: var(--color-accent-dark);
     font-weight: 600;
 }
 
@@ -359,13 +485,20 @@ footer {
     align-items: center;
     margin-left: 1rem;
     font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.rss-link:hover {
+    background-color: var(--color-accent);
 }
 
 .rss-icon {
     width: 16px;
     height: 16px;
     margin-right: 0.25rem;
-    fill: var(--color-accent);
 }
 
 /* Service Cards */
@@ -399,29 +532,266 @@ footer {
     margin-bottom: 0.5rem;
 }
 
+/* Data comparison and analysis styling */
+/* Storage table styling */
+.storage-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+.storage-table thead tr {
+    background-color: var(--color-accent); /* Using mint green variable */
+    color: #333;
+}
+
+.storage-table th, 
+.storage-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #eaeaea;
+}
+
+.storage-table th:nth-child(5),
+.storage-table th:nth-child(6),
+.storage-table td:nth-child(5),
+.storage-table td:nth-child(6) {
+    text-align: right;
+    font-weight: 600;
+}
+
+.storage-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.storage-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.storage-table .cell-webhost {
+    font-weight: bold;
+}
+
+/* Personal experience section */
+.personal-experience {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-left: 4px solid var(--color-accent);
+    background-color: var(--color-light-gray);
+}
+
+.personal-experience h4 {
+    margin-top: 0;
+    color: var(--color-dark-gray);
+}
+
+/* GitHub callout */
+.github-callout {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background-color: var(--color-light-gray); /* Updated to use site variable */
+    border-left: 4px solid var(--color-accent);
+    border-radius: 4px;
+}
+
+.github-callout p {
+    margin: 0;
+}
+
+/* Table notes */
+.table-notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.info-card {
+    flex: 1 1 300px;
+    background-color: var(--color-light-gray);
+    border-left: 3px solid var(--color-accent);
+    padding: 0.8rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.info-card h5 {
+    margin-top: 0;
+    color: var(--color-dark-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-card p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.info-card sup {
+    color: var(--color-dark-gray);
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+/* Regular table styling */
+.cost-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.cost-comparison-table th, .cost-comparison-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.cost-comparison-table th {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+.cost-comparison-table tr:nth-child(even) {
+    background-color: var(--color-light-gray);
+}
+
+.cost-comparison-table .average-row {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.table-notes {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.data-comparison {
+    margin-bottom: 40px;
+}
+
+.quote-section {
+    margin: 40px 0;
+    padding: 0; /* Remove padding */
+    background-color: var(--color-light-gray);
+    border-left: 5px solid var(--color-accent);
+}
+
+blockquote {
+    font-style: italic;
+    margin: 0;
+    font-size: 18px;
+    position: relative;
+    padding: 20px 20px 10px 20px;
+    border-left: none;
+}
+
+blockquote p {
+    margin-bottom: 10px;
+}
+
+blockquote footer {
+    font-style: normal;
+    font-size: 16px;
+    text-align: right;
+    color: var(--color-dark-gray);
+    margin-top: 15px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.svg-container {
+    margin: 40px 0;
+}
+
+.svg-wrapper {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.full-width-svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.svg-caption {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Hide mobile toggle by default */
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
+    /* Updated mobile navigation styles */
+    .mobile-nav-toggle {
+        display: block;
+    }
+    
     header .container {
-        flex-direction: column;
-        align-items: flex-start;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
     
     nav {
-        margin-top: 1rem;
         width: 100%;
+        margin-top: var(--space-md);
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+    }
+    
+    nav.open {
+        max-height: 200px;
     }
     
     nav ul {
         flex-direction: column;
+        width: 100%;
+        margin: 0;
     }
     
     nav li {
-        margin: 0.5rem 0;
+        margin: var(--space-xs) 0;
         margin-left: 0;
     }
     
-    body {
-        font-size: 16px;
+    /* Updated responsive typography */
+    :root {
+        --font-size-base: 1rem; /* Slightly smaller base font */
+    }
+    
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    
+    .container {
+        width: 95%; /* Slightly wider container on mobile */
+    }
+    
+    /* Responsive table */
+    .storage-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
     
     .tags-container {
@@ -436,5 +806,17 @@ footer {
     
     .service-cards {
         grid-template-columns: 1fr;
+    }
+    
+    .table-notes-container {
+        flex-direction: column;
+    }
+    
+    .posts-connector {
+        margin-left: 10px; /* Less space on mobile */
+    }
+    
+    body {
+        font-size: 16px;
     }
 }

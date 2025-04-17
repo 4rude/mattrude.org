@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matt Rude | Software Developer</title>
     <meta name="description" content="Matt Rude - Software Developer and Data Engineer. Thoughts on technology, software development, and making technology accessible to everyone.">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/css/main.css" as="style">
+    <link rel="preload" href="/assets/js/blog.js" as="script">
+    <link rel="preload" href="/assets/images/favicon/favicon.svg" as="image" type="image/svg+xml">
+    
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml" />
     
@@ -25,10 +31,11 @@
                     <li><a href="/resume/">Resume/CV</a></li>
                 </ul>
             </nav>
+            <!-- Mobile nav toggle will be added by JavaScript -->
         </div>
     </header>
     
-    <main class="container">
+    <main class="container page-transition">
         <section class="intro">
             <h2>Software Developer | Data Engineer</h2>
             <p>I build accessible, high-performance technology solutions that democratize digital capabilities for individuals and small organizations. Through tutorials, guides, and practical insights, I help you implement powerful systems without specialized technical expertise.</p>
@@ -44,9 +51,9 @@
         </section>
         
         <section class="blog-posts">
-            <h2>Latest Posts</h2>
+            <h2>Latest Posts<span class="posts-connector" aria-hidden="true"></span></h2>
             <div class="post-list">
-                <div class="loading-placeholder">Loading posts...</div>
+                <div class="loading-placeholder" role="status" aria-live="polite">Loading posts...</div>
                 <!-- Posts will be loaded dynamically by JavaScript -->
             </div>
         </section>
@@ -54,7 +61,7 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Matt Rude. All rights reserved.</p>
+            <p>&copy; 2025 Matt Rude. All rights reserved. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>
         </div>
     </footer>
     

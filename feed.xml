@@ -7,10 +7,77 @@
     <atom:link href="https://mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <copyright>© 2025 Matt Rude. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 01 Apr 2025 17:32:53 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 17 Apr 2025 14:36:07 -0500</lastBuildDate>
     <category>Technology</category>
     <category>Software Development</category>
     <category>Accessibility</category>
+    <item>
+      <title>Why Technology Is More Affordable Than Ever</title>
+      <link>https://mattrude.org/blog/posts/2025-04-02-why-technology-is-more-affordable-than-ever.html</link>
+      <guid>https://mattrude.org/blog/posts/2025-04-02-why-technology-is-more-affordable-than-ever.html</guid>
+      <pubDate>Wed, 16 Apr 2025 19:00:00 -0500</pubDate>
+      <description><![CDATA[
+        <p>In <a href="https://mattrude.org/blog/posts/2025-03-25-launching-my-personal-website.html">my previous post</a>, I mentioned how today's website costs a fraction of what similar technology would have cost in the past. This dramatic decrease in cost isn't just limited to my personal website — it's part of a broader trend in technology that has profound implications for creators, small businesses, and organizations of all sizes.</p>
+                
+                <p>Let's break down why tech infrastructure is more affordable and accessible than ever before, and what this means for the future of innovation.</p>
+                
+                <h3>The Plummeting Cost of Web Hosting</h3>
+                
+                <p>One of the most revealing ways to examine this trend is to look at web hosting costs over time. While raw hosting prices have remained relatively stable, what you get for your money has increased exponentially — and storage capacity provides the clearest illustration of this revolution in technology value.</p>
+                
+                <div class="storage-evolution">
+                    <h2>The Storage Revolution: More Bang for Your Buck</h2>
+                    
+                    <table class="storage-table">
+                        <thead>
+                            <tr>
+                                <th>Web Host</th>
+                                <th>1998 Storage</th>
+                                <th>2008 Storage</th>
+                                <th>2025 Storage</th>
+                                <th>10-Year Growth<br>(1998-2008)</th>
+                                <th>Overall Growth<br>(1998-2025)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="cell-webhost">Hostway</td>
+                                <td data-label="1998 Storage">200 MB<sup>2</sup></td>
+                                <td data-label="2008 Storage">12,000 MB</td>
+                                <td data-label="2025 Storage">50 GB</td>
+                                <td data-label="10-Year Growth">5,900%</td>
+                                <td data-label="Overall Growth">24,900%</td>
+                            </tr>
+                            <tr>
+                                <td class="cell-webhost">Liquid Web<sup>1</sup></td>
+                                <td data-label="1998 Storage">250 MB</td>
+                                <td data-label="2008 Storage">1,000 MB</td>
+                                <td data-label="2025 Storage">30-960 GB</td>
+                                <td data-label="10-Year Growth">300%</td>
+                                <td data-label="Overall Growth">~198,000%</td>
+                            </tr>
+                            <tr>
+                                <td class="cell-webhost">DreamHost</td>
+                                <td data-label="1998 Storage">10 MB</td>
+                                <td data-label="2008 Storage">500,000 MB</td>
+                                <td data-label="2025 Storage">Unlimited</td>
+                                <td data-label="10-Year Growth">5,000,000%</td>
+                                <td data-label="Overall Growth">∞</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p class="table-notes">Sources: <a href="https://www.pingdom.com/blog/web-hosting-now-vs-10-years-ago/" target="_blank">Pingdom (2008)</a>, <a href="https://www.dreamhost.com/hosting/shared/" target="_blank">DreamHost (2025)</a>, <a href="https://www.liquidweb.com/pricing/" target="_blank">Liquid Web (2025)</a>, <a href="https://hostway.com/" target="_blank">Hostway (2025)</a></p>
+                    
+                    <div class="info-card">
+                        <h5>Technical Notes</h5>
+                        <p><sup>1</sup> Liquid Web has shifted from shared hosting to VPS (Virtual Private Server) offerings. A VPS is like having your own small dedicated computer in the cloud, giving you more control and resources than shared hosting.</p>
+                        <p><sup>2</sup> For reference, 1000 MB (megabytes) = 1 GB (gigabyte).</p>
+        
+        <p><a href="https://mattrude.org/blog/posts/2025-04-02-why-technology-is-more-affordable-than-ever.html">View original post</a></p>
+      ]]></description>
+      <category>Analysis</category>
+    </item>
     <item>
       <title>Launching My Personal Website</title>
       <link>https://mattrude.org/blog/posts/2025-03-25-launching-my-personal-website.html</link>
@@ -19,7 +86,7 @@
       <description><![CDATA[
         <p>Today marks an exciting milestone. I have finally launched my personal website!</p>
                 
-                <p>Built with vanilla HTML, CSS, and JavaScript on Cloudflare's infrastructure, this entire site costs less than $8 USD per year to maintain. A comparable WordPress site might cost $200 USD/year including domain and security certificates, plus additional fees for plugins and ongoing maintenance. This cost disparity reflects a pattern I have observed throughout my career as a software developer and data engineer: the significant gap between vendor pricing and actual implementation costs.</p>
+                <p>Built with vanilla HTML, CSS, and JavaScript on Cloudflare's infrastructure, this entire site costs less than $8 USD per year to own and host. A comparable WordPress site might cost $200 USD/year including domain and security certificates, plus additional fees for plugins and ongoing maintenance. This cost disparity reflects a pattern I have observed throughout my career as a software developer and data engineer: the significant gap between vendor pricing and actual implementation costs.</p>
                 
                 <p>This technology affordability gap scales dramatically:</p>
                 

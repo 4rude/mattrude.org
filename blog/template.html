@@ -15,6 +15,12 @@ END_BLOG_META
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Post Title | Matt Rude</title>
     <meta name="description" content="A brief description of your post for the homepage and RSS feed">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/css/main.css" as="style">
+    <link rel="preload" href="/assets/js/blog.js" as="script">
+    <link rel="preload" href="/assets/images/favicon/favicon.svg" as="image" type="image/svg+xml">
+    
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml" />
     
@@ -38,7 +44,7 @@ END_BLOG_META
         </div>
     </header>
     
-    <main class="container blog-post">
+    <main class="container blog-post page-transition">
         <article>
             <header class="post-header">
                 <h2>Your Post Title</h2>
@@ -86,7 +92,7 @@ END_BLOG_META
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Matt Rude. All rights reserved.</p>
+            <p>&copy; 2025 Matt Rude. All rights reserved. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>
         </div>
     </footer>
     

@@ -15,6 +15,12 @@ END_BLOG_META
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Launching My Personal Website | Matt Rude</title>
     <meta name="description" content="Today marks an exciting milestone. I have finally launched my personal website! I'm sharing my journey of creating affordable technology solutions without enterprise-level budgets, challenging common assumptions about cost and expertise requirements.">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/css/main.css" as="style">
+    <link rel="preload" href="/assets/js/blog.js" as="script">
+    <link rel="preload" href="/assets/images/favicon/favicon.svg" as="image" type="image/svg+xml">
+    
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml" />
     
@@ -38,21 +44,21 @@ END_BLOG_META
         </div>
     </header>
     
-    <main class="container blog-post">
+    <main class="container blog-post page-transition">
         <article>
             <header class="post-header">
                 <h2>Launching My Personal Website</h2>
                 <div class="post-meta">
                     <span class="publish-date">March 28, 2025</span>
                     <span class="edit-divider">·</span>
-                    <span class="edit-date">Edited: April 1, 2025</span>
+                    <span class="edit-date">Edited: April 10, 2025</span>
                 </div>
             </header>
             
             <div class="post-content">
                 <p>Today marks an exciting milestone. I have finally launched my personal website!</p>
                 
-                <p>Built with vanilla HTML, CSS, and JavaScript on Cloudflare's infrastructure, this entire site costs less than $8 USD per year to maintain. A comparable WordPress site might cost $200 USD/year including domain and security certificates, plus additional fees for plugins and ongoing maintenance. This cost disparity reflects a pattern I have observed throughout my career as a software developer and data engineer: the significant gap between vendor pricing and actual implementation costs.</p>
+                <p>Built with vanilla HTML, CSS, and JavaScript on Cloudflare's infrastructure, this entire site costs less than $8 USD per year to own and host. A comparable WordPress site might cost $200 USD/year including domain and security certificates, plus additional fees for plugins and ongoing maintenance. This cost disparity reflects a pattern I have observed throughout my career as a software developer and data engineer: the significant gap between vendor pricing and actual implementation costs.</p>
                 
                 <p>This technology affordability gap scales dramatically:</p>
                 
@@ -154,7 +160,7 @@ END_BLOG_META
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Matt Rude. All rights reserved.</p>
+            <p>&copy; 2025 Matt Rude. All rights reserved. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>
         </div>
     </footer>
     
