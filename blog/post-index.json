@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "title": "Why Technology Is More Affordable Than Ever",
+      "date": "2025-04-17",
+      "description": "An analysis of how web hosting costs have plummeted over the decades, making technology infrastructure more accessible to everyone. This post examines the economic factors that have democratized tech and why it matters for individual creators and small organizations.",
+      "tags": [
+        "Analysis"
+      ],
+      "file": "2025-04-02-why-technology-is-more-affordable-than-ever.html"
+    },
+    {
       "title": "Launching My Personal Website",
       "date": "2025-03-28",
       "description": "Today marks an exciting milestone. I have finally launched my personal website! I'm sharing my journey of creating affordable technology solutions without enterprise-level budgets, challenging common assumptions about cost and expertise requirements.",
@@ -8,9 +17,9 @@
         "Introduction"
       ],
       "file": "2025-03-25-launching-my-personal-website.html",
-      "edited": "April 1, 2025"
+      "edited": "April 10, 2025"
     }
   ],
-  "generated": "2025-04-01T22:32:53.066Z",
-  "count": 1
+  "generated": "2025-04-17T19:36:07.902Z",
+  "count": 2
 }

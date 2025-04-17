@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume/CV | Matt Rude</title>
     <meta name="description" content="Professional resume and CV of Matt Rude, Software Developer and Data Engineer based in St. Paul, MN">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/css/main.css" as="style">
+    <link rel="preload" href="/assets/js/blog.js" as="script">
+    <link rel="preload" href="/assets/images/favicon/favicon.svg" as="image" type="image/svg+xml">
+    
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml" />
     
@@ -28,7 +34,7 @@
         </div>
     </header>
     
-    <main class="container resume">
+    <main class="container resume page-transition">
         <section class="resume-header">
             <div class="contact-info">
                 <p><a href="https://github.com/4rude" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/matthew-rude-dev/" target="_blank">LinkedIn</a> | <a href="https://bsky.app/profile/mattybilly.bsky.social" target="_blank">Bluesky</a></p>
@@ -128,7 +134,7 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Matt Rude. All rights reserved.</p>
+            <p>&copy; 2025 Matt Rude. All rights reserved. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>
         </div>
     </footer>
     

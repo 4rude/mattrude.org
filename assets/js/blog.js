@@ -12,6 +12,22 @@ window.Blog = {
    */
   init: function() {
     console.log('Initializing blog functionality');
+    
+    // Initialize the back to top button
+    this.initBackToTop();
+    
+    // Add accessibility enhancements
+    this.enhanceAccessibility();
+    
+    // Enable lazy loading for images
+    this.enableLazyLoading();
+    
+    // Initialize mobile navigation
+    this.initMobileNav();
+    
+    // Add page transition handler
+    this.initPageTransition();
+    
     // Check if we're on a page with blog posts
     // Using optional chaining for cleaner code
     const postList = document.querySelector('.post-list');
@@ -20,6 +36,166 @@ window.Blog = {
     // Check if we're on an individual blog post page
     const blogPost = document.querySelector('.blog-post');
     blogPost && this.setupPostNavigation();
+  },
+  
+  /**
+   * Add Back to Top button
+   */
+  initBackToTop: function() {
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.innerHTML = '↑';
+    backToTopBtn.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(backToTopBtn);
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  },
+  
+  /**
+   * Add accessibility enhancements
+   */
+  enhanceAccessibility: function() {
+    // Add proper ARIA roles and states to tag filtering
+    const tagsContainer = document.querySelector('.tags-container');
+    if (tagsContainer) {
+      tagsContainer.setAttribute('role', 'tablist');
+      tagsContainer.setAttribute('aria-label', 'Filter posts by tag');
+      
+      document.querySelectorAll('.tag').forEach(tag => {
+        tag.setAttribute('role', 'tab');
+        tag.setAttribute('aria-selected', tag.classList.contains('active') ? 'true' : 'false');
+        tag.setAttribute('tabindex', tag.classList.contains('active') ? '0' : '-1');
+      });
+    }
+    
+    // Add loading states to dynamic content
+    const loadingElements = document.querySelectorAll('.loading-placeholder, .loading-more');
+    loadingElements.forEach(el => {
+      el.setAttribute('role', 'status');
+      el.setAttribute('aria-live', 'polite');
+    });
+  },
+  
+  /**
+   * Add lazy loading for images
+   */
+  enableLazyLoading: function() {
+    // Use native lazy loading for images
+    document.querySelectorAll('img').forEach(img => {
+      if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy');
+      }
+    });
+    
+    // For browsers that don't support native lazy loading
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.getAttribute('data-src');
+            if (src) {
+              img.src = src;
+              img.removeAttribute('data-src');
+            }
+            observer.unobserve(img);
+          }
+        });
+      });
+      
+      document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+      });
+    }
+  },
+  
+  /**
+   * Initialize mobile navigation
+   */
+  initMobileNav: function() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    
+    const nav = header.querySelector('nav');
+    if (!nav) return;
+    
+    // Create toggle button if it doesn't exist
+    if (!header.querySelector('.mobile-nav-toggle')) {
+      const toggleBtn = document.createElement('button');
+      toggleBtn.className = 'mobile-nav-toggle';
+      toggleBtn.setAttribute('aria-label', 'Toggle navigation');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.innerHTML = '☰';
+      
+      // Insert toggle button before nav
+      nav.parentNode.insertBefore(toggleBtn, nav);
+      
+      // Add toggle functionality
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', !isExpanded);
+        nav.classList.toggle('open');
+        toggleBtn.innerHTML = isExpanded ? '☰' : '✕';
+      });
+    }
+  },
+  
+  /**
+   * Add page transition handler
+   */
+  initPageTransition: function() {
+    // Add page transition class to main content
+    const main = document.querySelector('main');
+    if (main && !main.classList.contains('page-transition')) {
+      main.classList.add('page-transition');
+    }
+    
+    // Handle link clicks for page transitions
+    document.querySelectorAll('a').forEach(link => {
+      // Skip external links, hash links, and links that already have event handlers
+      if (
+        link.hostname !== window.location.hostname || 
+        link.getAttribute('href').startsWith('#') ||
+        link.dataset.transitionHandler
+      ) {
+        return;
+      }
+      
+      // Mark link as processed
+      link.dataset.transitionHandler = 'true';
+      
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const href = link.getAttribute('href');
+        
+        // Add loading class to body
+        document.body.classList.add('loading');
+        
+        // Navigate after transition time
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
+      });
+    });
+    
+    // Remove loading class when page is loaded
+    window.addEventListener('load', () => {
+      document.body.classList.remove('loading');
+    });
   },
   
   /**
@@ -68,11 +244,13 @@ window.Blog = {
       
       if (page === 1) {
         // First page, clear the container and add loading indicator
-        container.innerHTML = '<div class="loading-placeholder">Loading posts...</div>';
+        container.innerHTML = '<div class="loading-placeholder" role="status" aria-live="polite">Loading posts...</div>';
       } else {
         // Add a loading indicator at the bottom for subsequent pages
         const loadingMore = document.createElement('div');
         loadingMore.className = 'loading-more';
+        loadingMore.setAttribute('role', 'status');
+        loadingMore.setAttribute('aria-live', 'polite');
         loadingMore.textContent = 'Loading more posts...';
         container.appendChild(loadingMore);
       }
@@ -142,7 +320,11 @@ window.Blog = {
     
     // Create article element
     const article = document.createElement('article');
-    article.className = 'post';
+    article.className = 'post card card-accent-left';
+    article.style.opacity = '0';
+    article.style.transform = 'translateY(20px)';
+    article.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    
     // Using optional chaining for cleaner tag handling
     if (post.tags?.length) {
       article.dataset.tags = post.tags.join(',');
@@ -152,11 +334,17 @@ window.Blog = {
     article.innerHTML = `
       <h3><a href="/blog/posts/${post.file}">${post.title}</a></h3>
       <div class="post-meta">${dateHtml}</div>
-      <div class="post-content-placeholder">Loading content...</div>
+      <div class="post-content-placeholder" role="status" aria-live="polite">Loading content...</div>
     `;
     
     // Add to container right away so we don't wait for fetch to complete
     container.appendChild(article);
+    
+    // Trigger animation after a short delay
+    setTimeout(() => {
+      article.style.opacity = '1';
+      article.style.transform = 'translateY(0)';
+    }, 50);
     
     // Fetch the full post content
     fetch(`/blog/posts/${post.file}`)
@@ -214,6 +402,10 @@ window.Blog = {
       return; // No tags container found
     }
     
+    // Add ARIA attributes for accessibility
+    tagsContainer.setAttribute('role', 'tablist');
+    tagsContainer.setAttribute('aria-label', 'Filter posts by tag');
+    
     // Collect all unique tags
     const uniqueTags = new Set();
     posts.forEach(post => {
@@ -233,6 +425,9 @@ window.Blog = {
     allButton.className = 'tag active';
     allButton.textContent = 'All Posts';
     allButton.dataset.tag = 'all';
+    allButton.setAttribute('role', 'tab');
+    allButton.setAttribute('aria-selected', 'true');
+    allButton.setAttribute('tabindex', '0');
     allButton.addEventListener('click', () => this.filterPostsByTag('all'));
     tagsContainer.appendChild(allButton);
     
@@ -242,6 +437,9 @@ window.Blog = {
       button.className = 'tag';
       button.textContent = tag;
       button.dataset.tag = tag;
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-selected', 'false');
+      button.setAttribute('tabindex', '-1');
       button.addEventListener('click', () => this.filterPostsByTag(tag));
       tagsContainer.appendChild(button);
     });
@@ -255,7 +453,10 @@ window.Blog = {
     console.log('Filtering posts by tag:', tag);
     // Update active state on tag buttons
     document.querySelectorAll('.tag').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.tag === tag);
+      const isActive = btn.dataset.tag === tag;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      btn.setAttribute('tabindex', isActive ? '0' : '-1');
     });
     
     // Filter the posts
