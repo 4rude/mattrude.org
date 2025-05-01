@@ -1,23 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Matt Rude's Blog</title>
-    <description>Practical guides, tutorials, and insights on building powerful technology solutions without the enterprise price tag. Making technology accessible for everyone.</description>
-    <link>https://mattrude.org</link>
-    <atom:link href="https://mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
-    <language>en-us</language>
-    <copyright>© 2025 Matt Rude. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 01 May 2025 15:11:44 -0500</lastBuildDate>
-    <category>Technology</category>
-    <category>Software Development</category>
-    <category>Accessibility</category>
-    <item>
-      <title>Security on a Budget: Essential Tools and Practices</title>
-      <link>https://mattrude.org/blog/posts/2025-05-01-security-on-a-budget.html</link>
-      <guid>https://mattrude.org/blog/posts/2025-05-01-security-on-a-budget.html</guid>
-      <pubDate>Wed, 30 Apr 2025 19:00:00 -0500</pubDate>
-      <description><![CDATA[
-        <p>Obligatory blog post quote incoming...</p>
+<!--
+BLOG_META
+{
+  "title": "Security on a Budget: Essential Tools and Practices",
+  "date": "2025-05-01",
+  "description": "Learn practical security measures that don't require enterprise budgets, from zero trust principles to identifying AI deepfakes and free tools that can protect your digital life.",
+  "tags": ["Security", "Tools"]
+}
+END_BLOG_META
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security on a Budget: Essential Tools and Practices | Matt Rude</title>
+    <meta name="description" content="Learn practical security measures that don't require enterprise budgets, from zero trust principles to identifying AI deepfakes and free tools that can protect your digital life.">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/css/main.css" as="style">
+    <link rel="preload" href="/assets/js/blog.js" as="script">
+    <link rel="preload" href="/assets/images/favicon/favicon.svg" as="image" type="image/svg+xml">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml" />
+    
+    <!-- Favicon and app icons -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Matt Rude</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/resume/">Resume/CV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container blog-post page-transition">
+        <article>
+            <header class="post-header">
+                <h2>Security on a Budget: Essential Tools and Practices</h2>
+                <div class="post-meta">
+                    <span class="publish-date">May 1, 2025</span>
+                </div>
+            </header>
+            
+            <div class="post-content">
+                <p>Obligatory blog post quote incoming...</p>
                 
                 <p>Safety expert Shayne Connolly once wryly noted on their blog: "I guess the company tag line of 'We are here for the profit, let's try not to hurt anyone' isn't great for PR though" <sup><a href="https://safetyinnovation.wordpress.com/2014/08/16/safety-is-not-a-priority-it-is-a-precondition/" target="_blank">[1]</a></sup>.</p>
                 
@@ -161,140 +198,68 @@
                                 
                 <div style="text-align: center; margin: 50px 0; font-size: 1.5em; font-style: italic; color: #333;">
                     "While updates are super annoying, they are often worth the wait."
-                    <div style="font-size: 0.8em; margin-top: 15px;">— Me
-        
-        <p><a href="https://mattrude.org/blog/posts/2025-05-01-security-on-a-budget.html">View original post</a></p>
-      ]]></description>
-      <category>Security</category>
-      <category>Tools</category>
-    </item>
-    <item>
-      <title>Why Technology Is More Affordable Than Ever</title>
-      <link>https://mattrude.org/blog/posts/2025-04-02-why-technology-is-more-affordable-than-ever.html</link>
-      <guid>https://mattrude.org/blog/posts/2025-04-02-why-technology-is-more-affordable-than-ever.html</guid>
-      <pubDate>Wed, 16 Apr 2025 19:00:00 -0500</pubDate>
-      <description><![CDATA[
-        <p>In <a href="https://mattrude.org/blog/posts/2025-03-25-launching-my-personal-website.html">my previous post</a>, I mentioned how today's website costs a fraction of what similar technology would have cost in the past. This dramatic decrease in cost isn't just limited to my personal website — it's part of a broader trend in technology that has profound implications for creators, small businesses, and organizations of all sizes.</p>
+                    <div style="font-size: 0.8em; margin-top: 15px;">— Me</div>
+                </div>
                 
-                <p>Let's break down why tech infrastructure is more affordable and accessible than ever before, and what this means for the future of innovation.</p>
+                <h3>Considerations & Cautions</h3>
                 
-                <h3>The Plummeting Cost of Web Hosting</h3>
+                <p>Despite the benefits of open source security tools, remain aware of:</p>
                 
-                <p>One of the most revealing ways to examine this trend is to look at web hosting costs over time. While raw hosting prices have remained relatively stable, what you get for your money has increased exponentially — and storage capacity provides the clearest illustration of this revolution in technology value.</p>
+                <ul>
+                    <li><strong>Software Supply Chain Issues:</strong> Even well-respected tools can be compromised if someone manages to sneak malicious code into their components or distribution methods. Think of it like food recalls—sometimes the problem isn't with the restaurant but with an ingredient supplier.</li>
+                </ul>
                 
-                <div class="table-section">
-                    <h3 class="table-title">The Storage Revolution: More Bang for Your Buck</h3>
+                <h3>Who Benefits Most?</h3>
+                
+                <p>These security tools and practices are particularly valuable for:</p>
+                
+                <ul class="feature-list">
+                    <li><strong>Individuals in regions with restricted internet freedom:</strong> Tor Browser and VPNs can help circumvent censorship and surveillance.</li>
                     
-                    <table class="storage-table">
-                        <thead>
-                            <tr>
-                                <th>Web Host</th>
-                                <th>1998 Storage</th>
-                                <th>2008 Storage</th>
-                                <th>2025 Storage</th>
-                                <th>10-Year Growth<br>(1998-2008)</th>
-                                <th>Overall Growth<br>(1998-2025)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="cell-webhost">Hostway</td>
-                                <td data-label="1998 Storage">200 MB<sup>2</sup></td>
-                                <td data-label="2008 Storage">12,000 MB</td>
-                                <td data-label="2025 Storage">50 GB</td>
-                                <td data-label="10-Year Growth">5,900%</td>
-                                <td data-label="Overall Growth">24,900%</td>
-                            </tr>
-                            <tr>
-                                <td class="cell-webhost">Liquid Web<sup>1</sup></td>
-                                <td data-label="1998 Storage">250 MB</td>
-                                <td data-label="2008 Storage">1,000 MB</td>
-                                <td data-label="2025 Storage">30-960 GB</td>
-                                <td data-label="10-Year Growth">300%</td>
-                                <td data-label="Overall Growth">~198,000%</td>
-                            </tr>
-                            <tr>
-                                <td class="cell-webhost">DreamHost</td>
-                                <td data-label="1998 Storage">10 MB</td>
-                                <td data-label="2008 Storage">500,000 MB</td>
-                                <td data-label="2025 Storage">Unlimited</td>
-                                <td data-label="10-Year Growth">5,000,000%</td>
-                                <td data-label="Overall Growth">∞</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <li><strong>Journalists, activists, and whistleblowers:</strong> Matrix/Element's end-to-end encryption can protect sensitive communications.</li>
                     
-                    <div class="table-meta">
-                        <div class="table-sources">Sources: <a href="https://www.pingdom.com/blog/web-hosting-now-vs-10-years-ago/" target="_blank">Pingdom (2008)</a>, <a href="https://www.dreamhost.com/hosting/shared/" target="_blank">DreamHost (2025)</a>, <a href="https://www.liquidweb.com/pricing/" target="_blank">Liquid Web (2025)</a>, <a href="https://hostway.com/" target="_blank">Hostway (2025)</a>
+                    <li><strong>People living under authoritarian governance:</strong> Which, it's worth noting, can include parts of governments at various levels in many countries, including some agencies and departments within the United States.</li>
+                    
+                    <li><strong>Small businesses without security teams:</strong> These tools provide enterprise-level protection without the enterprise budget.</li>
+                    
+                    <li><strong>Anyone concerned about data privacy:</strong> As data collection becomes more pervasive, these tools help maintain control over your digital footprint.</li>
+                </ul>
+                
+                <h3>Wrap-up</h3>
+                
+                <p>Before adding your work, data, or identity to the internet, establishing these security foundations is essential. Start simple: just one practice from this post goes a long way.</p>
+                
+                <p>Need help setting up these tools? Drop me a line on <a href="https://www.linkedin.com/in/matthew-rude-dev/" target="_blank">LinkedIn</a> or <a href="https://bsky.app/profile/mattybilly.bsky.social" target="_blank">Bluesky</a>.</p>
+                
+                <p>— Matt</p>
+                
+                <br><br>
+                
+                <h4 style="text-align: center">References</h4>
+                <ul>
+                    <li>Connolly, S. (2014, August 16). "Safety is not a priority, it is a precondition." <em>Safety Innovation and Leadership</em>. <a href="https://safetyinnovation.wordpress.com/2014/08/16/safety-is-not-a-priority-it-is-a-precondition/" target="_blank">https://safetyinnovation.wordpress.com/2014/08/16/safety-is-not-a-priority-it-is-a-precondition/</a></li>
+                    <li>CrowdStrike. (n.d.). "What Is Zero Trust Security?" <em>CrowdStrike</em>. <a href="https://www.crowdstrike.com/en-us/cybersecurity-101/zero-trust-security/" target="_blank">https://www.crowdstrike.com/en-us/cybersecurity-101/zero-trust-security/</a></li>
+                </ul>
+            </div>
+        </article>
         
-        <p><a href="https://mattrude.org/blog/posts/2025-04-02-why-technology-is-more-affordable-than-ever.html">View original post</a></p>
-      ]]></description>
-      <category>Analysis</category>
-    </item>
-    <item>
-      <title>Launching My Personal Website</title>
-      <link>https://mattrude.org/blog/posts/2025-03-25-launching-my-personal-website.html</link>
-      <guid>https://mattrude.org/blog/posts/2025-03-25-launching-my-personal-website.html</guid>
-      <pubDate>Thu, 27 Mar 2025 19:00:00 -0500</pubDate>
-      <description><![CDATA[
-        <p>Today marks an exciting milestone. I have finally launched my personal website!</p>
-                
-                <p>Built with vanilla HTML, CSS, and JavaScript on Cloudflare's infrastructure, this entire site costs less than $8 USD per year to own and host. A comparable WordPress site might cost $200 USD/year including domain and security certificates, plus additional fees for plugins and ongoing maintenance. This cost disparity reflects a pattern I have observed throughout my career as a software developer and data engineer: the significant gap between vendor pricing and actual implementation costs.</p>
-                
-                <p>This technology affordability gap scales dramatically:</p>
-                
-                <ul class="feature-list">
-                    <li>Small organizations often spend hundreds annually on basic websites with limited customization</li>
-                    <li>Mid-tier businesses invest thousands in proprietary systems while using just a fraction of their features</li>
-                    <li>Enterprises commit to huge contracts for capabilities that could be built for a fraction of the cost</li>
-                </ul>
-                
-                <p>One organization I worked with saved $2400 USD annually and improved data reliability by replacing their existing synchronization process with a custom solution accelerated by AI tools. This exemplifies how modern development approaches can make specialized solutions more accessible than ever.</p>
-                
-                <h3>My Mission: Democratizing Technology</h3>
-                
-                <p>My vision is to bridge this gap by challenging two common assumptions: that powerful technology requires enterprise-level budgets, and that implementing custom solutions requires specialized expertise. The evidence increasingly suggests neither is true.</p>
-                
-                <p>I am creating practical resources that empower everyone, regardless of technical background or budget constraints, to implement robust technology systems by leveraging:</p>
-                
-                <ul class="feature-list">
-                    <li>Affordable infrastructure with generous free tiers (like Cloudflare<img src="https://mattrude.org/assets/images/cloudflare-icon.svg" alt="Cloudflare" class="inline-icon" style="height: 1em; vertical-align: middle; margin: 0 2px;">)</li>
-                    <li>Open source solutions that rival commercial offerings</li>
-                    <li>Clean, simple code patterns that are easier to maintain</li>
-                    <li>Secure design principles that protect data without specialized knowledge</li>
-                    <li>AI-assisted development tools that amplify basic technical skills</li>
-                </ul>
-                
-                <p>This approach creates better, more tailored solutions that precisely match your needs rather than forcing your processes to conform to off-the-shelf software limitations.</p>
-                
-                <h3>What to Expect</h3>
-                
-                <p>To put these principles into action, I'm developing a series of practical resources that progress from fundamental to advanced implementations. Here's what you can look forward to in the coming weeks and months:</p>
-                
-                <ul class="feature-list">
-                    <li>Practical Applications of AI Tools for Non-Technical Users</li>
-                    <li>Essential Cybersecurity Practices for Small and Medium Organizations</li>
-                    <li>Custom Survey and Data Collection Systems</li>
-                    <li>Lightweight CRM Solutions for Small Organizations</li>
-                    <li>Integration Strategies for Existing Business Tools</li>
-                    <li>Data Visualization Tools and Dashboards</li>
-                </ul>
-                
-                <p>These tutorials won't assume extensive coding experience—if you can follow instructions and have basic computer literacy, you can implement these solutions. I will emphasize how modern code patterns combined with AI tools can make development accessible to non-specialists while creating technology that truly serves everyone's needs.</p>
-                
-                <p>While these resources will empower many readers to build their own solutions, I recognize that some situations call for more direct collaboration. That's why I am also offering several ways we can work together...</p>
-                
-                <h3>Working Together</h3>
-
-                <!-- NEW: Reformatted as cards for better visual balance -->
-                <div class="service-cards">
-                    <div class="service-card">
-                        <h4>Full-Service Development</h4>
-                        <p>We define your requirements together, then I handle all development and hosting. You get a complete, worry-free solution with ongoing support—ideal if you want to focus on your core mission without technical concerns.</p>
-        
-        <p><a href="https://mattrude.org/blog/posts/2025-03-25-launching-my-personal-website.html">View original post</a></p>
-      ]]></description>
-      <category>Introduction</category>
-    </item>
-  </channel>
-</rss>
+        <div class="post-navigation">
+            <div class="prev-post">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <div class="next-post">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Matt Rude. All rights reserved. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>
+        </div>
+    </footer>
+    
+    <!-- Only include blog.js since we've made it self-initializing -->
+    <script src="/assets/js/blog.js"></script>
+</body>
+</html>
