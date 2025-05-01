@@ -533,6 +533,48 @@ footer {
 }
 
 /* Data comparison and analysis styling */
+/* Minimalist Table Section */
+.table-section {
+    margin: 3rem 0;
+    background-color: #f9f9f9; /* Very subtle light gray background */
+    border-radius: var(--radius-md);
+    overflow: hidden; /* Keep inner elements contained */
+}
+
+/* Table Title */
+.table-title {
+    margin: 0;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Table Metadata Section */
+.table-meta {
+    padding: 1.5rem;
+    border-top: 1px solid #eaeaea;
+    background-color: #f5f5f5;
+}
+
+/* Sources styling */
+.table-sources {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Technical Notes styling */
+.table-notes {
+    font-size: 0.9rem;
+    color: #666;
+    border-left: 2px solid var(--color-accent);
+    padding-left: 1rem;
+}
+
+.table-notes h5 {
+    margin-top: 0;
+    color: #333;
+}
+
 /* Storage table styling */
 .storage-table {
     width: 100%;
@@ -541,6 +583,14 @@ footer {
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin: 20px 0;
+}
+
+/* Update storage table to work inside minimalist container */
+.table-section .storage-table {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border-collapse: collapse;
 }
 
 .storage-table thead tr {

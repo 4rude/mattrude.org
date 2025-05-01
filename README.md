@@ -48,6 +48,42 @@ mattrude.org/
 └── README.md                  # This file
 ```
 
+## Future Plans: Annotations Section
+
+A planned addition to the website is a dedicated annotations section for sharing insights from papers and books. This section will use a structure similar to the blog system but with specialized features for academic content.
+
+### Planned Structure
+
+```
+mattrude.org/
+├── annotations/                      # Annotations section
+│   ├── index.html                    # Main annotations page
+│   ├── template-paper.html           # Template for paper annotations
+│   ├── template-book.html            # Template for book annotations
+│   ├── annotation-index.json         # Auto-generated index
+│   └── entries/                      # Individual annotation files
+│       ├── YYYY-MM-DD-paper-title.html
+│       └── YYYY-MM-DD-book-title.html
+```
+
+### Key Features
+
+- Specialized metadata for papers and books (authors, DOIs, ISBNs, etc.)
+- Academic citation generation
+- Filtering by publication type, research topic, and year
+- Rating system for personal evaluations
+- Rich note-taking format for extracting key insights
+
+### Implementation Approach
+
+The annotations section will follow a similar development pattern to the blog:
+1. Individual HTML files with specialized metadata in comment blocks
+2. Auto-generated index file for performance
+3. Dedicated JavaScript for handling annotations-specific functionality
+4. Custom CSS for academic content presentation
+
+This feature will enable sharing of distilled wisdom and understanding from academic and literary sources, separate from but complementary to the blog content.
+
 ## Development Workflow
 
 This site is automatically deployed to Cloudflare Pages when changes are pushed to the main branch of this repository.
