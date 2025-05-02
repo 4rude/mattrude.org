@@ -787,6 +787,17 @@ blockquote footer {
     margin-left: auto;
 }
 
+/* Phishing alert box styling */
+.phishing-alert {
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--color-light-gray);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     /* Updated mobile navigation styles */

@@ -7,7 +7,7 @@
     <atom:link href="https://mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <copyright>© 2025 Matt Rude. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 01 May 2025 15:11:44 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 02 May 2025 13:52:34 -0500</lastBuildDate>
     <category>Technology</category>
     <category>Software Development</category>
     <category>Accessibility</category>
@@ -68,100 +68,18 @@
                 
                 <p>(And no, I'm not describing your average cold sales call, though the similarities can be striking! The difference is that legitimate salespeople merely want your money upfront, while scammers want your credentials, identity, or both. At least the salesperson will send you something in return—even if it's just another sales person.)</p>
                 
-                <h3>Identity Verification Practices</h3>
-                
-                <p>When someone contacts you or you're working with someone online:</p>
-                
-                <ul class="feature-list">
-                    <li><strong>Implement Multi-Channel Verification:</strong> If someone emails you, call them on a known number to confirm before taking action.</li>
+                <div class="phishing-alert">
+                    <h4>🚩 Watch for Phishing Red Flags 🚩</h4>
                     
-                    <li><strong>Request Impromptu Video Calls:</strong> Ask for a spontaneous video call where you can see the person in real-time—AI can't yet convincingly participate in unplanned live interactions.</li>
+                    <p>Be alert to these common warning signs:</p>
+                    <ul>
+                        <li>Poor grammar or spelling in messages from supposed professional sources</li>
+                        <li>Urgency or unusual requests ("Act now or your account will be closed!")</li>
+                        <li>Suspicious sender addresses (check the actual email address, not just the display name)</li>
+                        <li>Questionable link destinations (hover before clicking to see where they really go)</li>
+                    </ul>
                     
-                    <li><strong>Look for Competency Indicators:</strong> Someone who claims to be a specialist should demonstrate depth of knowledge beyond what's publicly available. Ask detailed questions about their claimed expertise.</li>
-                    
-                    <li><strong>Verify Humanity:</strong> Ask about recent events that haven't had time to be incorporated into training data, or request specific actions during video calls that would be difficult to fake.</li>
-                    
-                    <li><strong>Trust Your Instincts:</strong> If something feels "off" about an interaction, take extra verification steps before proceeding.</li>
-                </ul>
-                
-                <h3>Free Security Tools</h3>
-                
-                <p>After years of experience and careful analysis of the security tool industry, I've filtered down to this set of free tools that provide the best balance of security, usability, and trustworthiness:</p>
-                
-                <h4>Password Management</h4>
-                <ul>
-                    <li><strong>Bitwarden:</strong> Open source, free tier available (<a href="https://bitwarden.com/download/" target="_blank">Download Bitwarden</a>)</li>
-                    <li>Bitwarden undergoes regular <a href="https://bitwarden.com/help/is-bitwarden-audited/#third-party-security-audits" target="_blank">third-party security audits</a> to verify its security claims</li>
-                    <li><strong>Implementation Tip:</strong> Start by adding your most critical accounts like email, banking, and social media</li>
-                </ul>
-                
-                <h4>Two-Factor Authentication (2FA)</h4>
-                <ul>
-                    <li><strong>OTP Auth:</strong> Recommended for iOS users, download from the official <a href="https://apps.apple.com/us/app/otp-auth/id659877384" target="_blank">app store </a></li>
-                    <li><strong>Aegis Authenticator:</strong> Recommended for Android users, download from the <a href="https://play.google.com/store/apps/details?id=com.beemdevelopment.aegis" target="_blank">android store</a> or <a href="https://f-droid.org/packages/com.beemdevelopment.aegis/" target="_blank">f-droid store</a></li>
-                    <li><strong>Your phone/email:</strong> Built-in options for laptops/desktops</li>
-                    <li><strong>Implementation Tip:</strong> Prioritize enabling 2FA on accounts that control other accounts (email, Apple ID, Google)</li>
-                </ul>
-                
-                <h4>VPN Protection</h4>
-                <ul>
-                    <li><strong>ProtonVPN:</strong> Free tier with servers in multiple countries, no data caps</li>
-                    <li>ProtonVPN maintains a strict no-logs policy, verified by <a href="https://protonvpn.com/blog/no-logs-audit" target="_blank">independent security audits</a></li>
-                    <li><strong>Implementation Tip:</strong> Use automatically when on public WiFi networks</li>
-                </ul>
-                
-                <h4>Browser Security</h4>
-                <ul>
-                    <li><strong>Firefox:</strong> Privacy-focused browser with strong customization options (while acknowledging they've had their share of security issues too)</li>
-                    <li><strong>Tor Browser:</strong> Provides enhanced anonymity for users requiring stronger privacy protections (<a href="https://www.torproject.org/download/" target="_blank">Download Tor</a>)</li>
-                    <li><strong>uBlock Origin:</strong> Powerful ad and tracker blocking extension (<a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/" target="_blank">Firefox Add-on</a>)</li>
-                    <li><strong>Privacy Badger:</strong> Learns to block invisible trackers as you browse (<a href="https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/" target="_blank">Firefox Add-on</a>)</li>
-                </ul>
-                
-                <h4>Secure Communication</h4>
-                <ul>
-                    <li><strong>Matrix/Element:</strong> Open source, encrypted messaging platform available on virtually all devices (<a href="https://element.io/download" target="_blank">Download Element</a>)</li>
-                    <li>Matrix is the protocol (like email) while Element is the most popular app that uses it (like Gmail)</li>
-                    <li><strong>Implementation Tip:</strong> Create a room for your family or close friends to share sensitive information</li>
-                </ul>
-
-                <h3>Vetting Security Tools</h3>
-                
-                <p>When evaluating security tools, consider these criteria:</p>
-                
-                <h4>Transparency and Oversight</h4>
-                <ul>
-                    <li>Look for clear privacy policies that explicitly state what data is collected and how it's used</li>
-                    <li>Prefer open source solutions where the code can be inspected by the community</li>
-                    <li>Check for recent independent security audits (and their outcomes)</li>
-                </ul>
-                
-                <h4>Development Indicators</h4>
-                <ul>
-                    <li>Active development with regular updates and security patches</li>
-                    <li>Responsive community support and bug handling</li>
-                    <li>Transparent business model that doesn't rely on selling user data</li>
-                </ul>
-                
-                <h4>Where do I start?</h4>
-                <ul>
-                    <li><strong>Audit Reports:</strong> Look for published security audit reports on the tool's website or in security databases</li>
-                    <li><strong>Privacy Policy Reading:</strong> Focus on data collection, sharing practices, and retention policies</li>
-                </ul>
-                
-                <h3>Updates and Maintenance</h3>
-                
-                <ul>
-                    <li><strong>For non-technical users:</strong> Enable automatic operating system updates. The minor inconvenience of an occasional restart is far outweighed by the security benefits.</li>
-                    
-                    <li><strong>For technical users:</strong> Consider your OS, current projects, and potential impacts before updating. Schedule regular update periods (e.g., every two weeks) to review and apply updates thoughtfully.</li>
-                    
-                    <li><strong>Prioritize security updates:</strong> When you see the words "security vulnerability" or "critical update," that's your cue to update immediately.</li>
-                </ul>
-                                
-                <div style="text-align: center; margin: 50px 0; font-size: 1.5em; font-style: italic; color: #333;">
-                    "While updates are super annoying, they are often worth the wait."
-                    <div style="font-size: 0.8em; margin-top: 15px;">— Me
+                    <p>Today's scammers particularly love pushing cryptocurrency investments, obscure stocks, or exotic financial schemes with promises of extraordinary returns. If someone you just met is eager to help you invest for "guaranteed" profits, your financial safety is probably not their priority.</p>
         
         <p><a href="https://mattrude.org/blog/posts/2025-05-01-security-on-a-budget.html">View original post</a></p>
       ]]></description>
