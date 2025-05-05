@@ -726,6 +726,207 @@ footer {
     margin-bottom: 40px;
 }
 
+/* Annotations styles */
+.annotations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.annotation-card {
+    background-color: var(--color-light-gray);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border-left: 4px solid var(--color-accent);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.annotation-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.annotation-card h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.annotation-card h2 a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.annotation-card h2 a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+}
+
+.annotation-card .authors {
+    color: var(--color-dark-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.annotation-card .date {
+    color: var(--color-dark-gray);
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+}
+
+.annotation-card .preview {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.annotation-card .metadata-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-top: 1rem;
+}
+
+.annotation-card .tag {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    cursor: default;
+}
+
+.annotation-card .topic-tag {
+    background-color: var(--color-dark-gray);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    cursor: default;
+}
+
+/* Annotations controls */
+.annotations-controls {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: var(--color-light-gray);
+    border-radius: var(--radius-md);
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filters select {
+    padding: 0.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-background);
+    font-size: 0.9rem;
+    min-width: 150px;
+}
+
+/* Individual annotation page styles */
+.annotation .annotation-metadata {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.annotation .metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.annotation .metadata-item {
+    margin-bottom: 0.5rem;
+}
+
+.annotation .status-badge {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+}
+
+.annotation .citation-text {
+    padding: 1rem;
+    background-color: var(--color-light-gray);
+    border-left: 3px solid var(--color-accent);
+    font-family: monospace;
+    line-height: 1.5;
+}
+
+.annotation section {
+    margin-bottom: 2rem;
+}
+
+.annotation section h2 {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.annotation blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+}
+
+/* Tags and topics in annotations */
+.annotation .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.annotation .tag {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+}
+
+.annotation .topic-tag {
+    background-color: var(--color-dark-gray);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Placeholder message styling */
+.placeholder-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    opacity: 0.8;
+}
+
+.placeholder-message .annotation-card {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
 .quote-section {
     margin: 40px 0;
     padding: 0; /* Remove padding */

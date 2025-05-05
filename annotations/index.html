@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annotations - mattrude.org</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" href="/assets/images/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Matt Rude</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/resume/">Resume/CV</a></li>
+                    <li><a href="/annotations/" class="active">Annotations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-transition">
+        <section class="intro">
+            <h1>Annotations</h1>
+            <p>Papers and books I've annotated, with key insights and personal reflections.</p>
+        </section>
+
+        <div class="annotations-controls">
+            <input type="text" id="searchInput" placeholder="Search annotations...">
+            
+            <div class="filters">
+                <select id="typeFilter">
+                    <option value="">All Types</option>
+                    <option value="paper">Papers</option>
+                    <option value="book">Books</option>
+                </select>
+                
+                <select id="tagFilter">
+                    <option value="">All Tags</option>
+                    <!-- Tags will be populated dynamically -->
+                </select>
+                
+                <select id="topicFilter">
+                    <option value="">All Topics</option>
+                    <!-- Topics will be populated dynamically -->
+                </select>
+                
+                <select id="sortOrder">
+                    <option value="date-desc">Newest First</option>
+                    <option value="date-asc">Oldest First</option>
+                    <option value="title">Title (A-Z)</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="annotationsList" class="annotations-grid">
+            <!-- Placeholder for when no annotations are found -->
+            <div class="placeholder-message">
+                <article class="annotation-card">
+                    <h2>📚 Coming Soon</h2>
+                    <p class="date">Future annotations will appear here</p>
+                    <p class="preview">I'll be adding annotations of interesting papers and books soon. Check back later for insights and reflections on my reading.</p>
+                    <div class="metadata-footer">
+                        <span class="tag">Example</span>
+                        <span class="topic-tag">Preview</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Matt Rude. All rights reserved. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/annotations.js"></script>
+</body>
+</html>
