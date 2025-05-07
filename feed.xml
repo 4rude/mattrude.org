@@ -7,7 +7,7 @@
     <atom:link href="https://mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <copyright>© 2025 Matt Rude. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 05 May 2025 16:03:13 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 07 May 2025 11:12:48 -0500</lastBuildDate>
     <category>Technology</category>
     <category>Software Development</category>
     <category>Accessibility</category>
@@ -19,17 +19,19 @@
       <description><![CDATA[
         <p>Obligatory blog post quote incoming...</p>
                 
-                <p>Safety expert Shayne Connolly once wryly noted on their blog: "I guess the company tag line of 'We are here for the profit, let's try not to hurt anyone' isn't great for PR though" <sup><a href="https://safetyinnovation.wordpress.com/2014/08/16/safety-is-not-a-priority-it-is-a-precondition/" target="_blank">[1]</a></sup>.</p>
+                <p>Safety expert Shayne Connolly once wryly noted on their blog: "I guess the company tag line of 'We are here for the profit, let's try not to hurt anyone' isn't great for PR though". <sup><a href="https://safetyinnovation.wordpress.com/2014/08/16/safety-is-not-a-priority-it-is-a-precondition/" target="_blank">1</a></sup></p>
                 
                 <p>While their cynical observation captures a harsh truth, it raises important questions about how we approach safety and security.</p>
                 
-                <p>This tension exists in all industries, including technology and cybersecurity. As we mark another <a href="https://archive.iww.org/history/library/misc/origins_of_mayday/" target="_blank">May Day</a>, it's clear we must take security and safety into our own hands rather than waiting for institutions to prioritize it for us. We need to not only implement these practices ourselves but teach others and advocate for better security standards at all levels.</p>
+                <p>This tension exists in all industries, including technology and cybersecurity. As we mark another <a href="https://archive.iww.org/history/library/misc/origins_of_mayday/" target="_blank">May Day</a>, it's clear we must take security and safety into our own hands rather than waiting for institutions to prioritize it for us. </p> 
+                
+                <p>We need to not only implement these practices ourselves but teach others and advocate for better security standards at all levels.</p>
                 
                 <p>Before diving into technical tutorials in future posts, I want to establish these essential security foundations that everyone should consider and share.</p>
                 
                 <h3>Zero Trust Principles</h3>
                 
-                <p>The concept of "Zero Trust" has transformed enterprise security, but its core principles are valuable for everyone <sup><a href="https://www.crowdstrike.com/en-us/cybersecurity-101/zero-trust-security/" target="_blank">[2]</a></sup>:</p>
+                <p>The concept of "Zero Trust" has transformed enterprise security, but its core principles are valuable for everyone:  <sup><a href="https://www.crowdstrike.com/en-us/cybersecurity-101/zero-trust-security/" target="_blank">2</a></sup></p>
                 
                 <ul class="feature-list">
                     <li><strong>Do not blindly trust an individual or system</strong><br>
@@ -77,7 +79,7 @@
                         <li>Questionable link destinations (hover before clicking to see where they really go)</li>
                     </ul>
                     
-                    <p>Today's scammers particularly love pushing cryptocurrency investments, obscure stocks, or exotic financial schemes with promises of extraordinary returns. If someone you just met is eager to help you invest for "guaranteed" profits, your financial safety is probably not their priority.</p>
+                    <p>Today's scammers particularly <b>love</b> pushing cryptocurrency investments, obscure stocks, or exotic financial schemes with promises of extraordinary returns. If someone you just met is eager to help you invest for "guaranteed" profits, your financial safety is probably not their priority.</p>
         
         <p><a href="https://mattrude.org/blog/posts/2025-05-01-security-on-a-budget.html">View original post</a></p>
       ]]></description>

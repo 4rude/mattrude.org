@@ -247,6 +247,32 @@ The RSS feed is generated using the `generate-feed.js` script in the tools direc
 - Blog listing on the homepage uses a pre-generated JSON index file for better performance
 - The blog.js script includes debug logs that can be viewed in the browser console
 
+## Future Improvements
+
+### Template-Based Structure
+
+A planned improvement for the site's architecture is to implement a template-based structure:
+
+1. **Base Template**: Create a single base HTML template that contains:
+   - Common `<head>` elements (meta tags, CSS imports, favicon links)
+   - Header with navigation
+   - Footer
+   - Common JavaScript imports
+
+2. **Benefits**:
+   - Consistent navigation and footer across all pages
+   - Centralized updates to shared elements
+   - Simplified creation of new page types
+   - Better mobile menu functionality across the site
+
+3. **Implementation Approach**:
+   - Create a `templates/` directory with base template files
+   - Develop a simple template engine or use a static site generator
+   - Refactor existing pages to use the template system
+   - Maintain the current vanilla JavaScript approach for dynamic content
+
+This architecture will improve maintainability while preserving the site's minimalist and dependency-free approach.
+
 ## License
 
 © 2025 Matt Rude. All rights reserved.
