@@ -1062,8 +1062,9 @@ blockquote footer {
         padding-bottom: 0.5rem;
     }
     
+    /* Remove white-space: nowrap to fix wrapping issues */
     .tag {
-        white-space: nowrap;
+        /* white-space property removed */
     }
     
     .service-cards {
@@ -1080,5 +1081,30 @@ blockquote footer {
     
     body {
         font-size: 16px;
+    }
+}
+
+/* Phone-sized screens */
+@media (max-width: 480px) {
+    .post-meta {
+        /* Improve wrapping for better mobile display */
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Add spacing between elements when stacked */
+    .edit-divider {
+        display: none;
+    }
+
+    .edit-date {
+        margin-top: 0.3rem;
+    }
+    
+    /* Fix for long titles in post cards */
+    .post h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
     }
 }

@@ -314,7 +314,7 @@ window.Blog = {
     if (post.edited && post.edited.trim()) {
       dateHtml += `
         <span class="edit-divider">·</span>
-        <span class="edit-date">Edited: ${post.edited}</span>
+        <span class="edit-date">Edited: ${this.formatDate(post.edited)}</span>
       `;
     }
     
