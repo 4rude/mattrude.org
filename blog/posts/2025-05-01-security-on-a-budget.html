@@ -3,7 +3,7 @@ BLOG_META
 {
   "title": "Security on a Budget: Essential Tools and Practices",
   "date": "2025-05-01",
-  "edited": "2025-05-05",
+  "edited": "2025-05-15",
   "description": "Learn practical security measures that don't require enterprise budgets, from zero trust principles to identifying AI deepfakes and free tools that can protect your digital life.",
   "tags": ["Security", "Tools"]
 }
@@ -53,7 +53,7 @@ END_BLOG_META
                 <div class="post-meta">
                     <span class="publish-date">May 1, 2025</span>
                     <span class="edit-divider">·</span>
-                    <span class="edit-date">Updated: May 5, 2025</span>
+                    <span class="edit-date">Updated: May 15, 2025</span>
                 </div>
             </header>
             
@@ -85,7 +85,7 @@ END_BLOG_META
                     Compartmentalize your digital life so a compromise in one area doesn't spread to everything.</li>
                 </ul>
                 
-                <p>These principles apply universally, whether you're running a corporation or just managing your personal accounts. A practical application: assume any information you share online could potentially be leaked to anyone. This mindset helps you make better decisions about what to share and where.</p>
+                <p>These principles apply universally, whether you're running a corporation or just managing your personal accounts. A practical application: assume any information you share online could potentially be leaked to anyone. This mindset helps you make better decisions about what to share and where.<br><br> The source I used for these Zero Trust principles was CrowdStrike. Ironically, people seem to have <i>zero trust</i> in them as a company after a <a href="https://www.theguardian.com/technology/2024/sep/24/crowdstrike-outage-microsoft-apology" target="_blank">recent software blunder that took down airports and hospitals</a>. </p>
                 
                 <h3>Modern Threats: Phishing and AI Impersonation</h3>
                 
@@ -141,8 +141,14 @@ END_BLOG_META
                 
                 <h3>Free Security Tools</h3>
                 
+                <div class="tools-container" style="border: 2px solid #4ad295; border-radius: 8px; padding: 20px; margin: 15px 0;">
+                    
                 <p>After years of experience and careful analysis of the security tool industry, I've filtered down to this set of free tools that provide the best balance of security, usability, and trustworthiness:</p>
-                
+
+                <div class="update-notice" style="margin-bottom: 15px; padding: 10px; background-color: #f8f8f8;">
+                    <p><strong>🔄 Regularly Updated:</strong> This section is routinely updated with the latest and most effective security tools as they emerge and evolve. Last updated: May 15, 2025.</p>
+                </div>
+
                 <h4>Password Management</h4>
                 <ul>
                     <li><strong>Bitwarden:</strong> Open source, free tier available (<a href="https://bitwarden.com/download/" target="_blank">Download Bitwarden</a>)</li>
@@ -182,8 +188,23 @@ END_BLOG_META
                     <li>Matrix is the protocol (like email) while Element is the most popular app that uses it (like Gmail)</li>
                     <li><strong>Implementation Tip:</strong> Create a room for your family or close friends to share sensitive information</li>
                 </ul>
+                
+                <ul>
+                    <li><strong>Your current email + PGP:</strong> Add end-to-end encryption to your existing email with <a href="https://mailvelope.com" target="_blank">Mailvelope</a></li>
+                    <li>Mailvelope is a browser extension that enables OpenPGP encryption in your webmail</li>
+                    <li><strong>Implementation Tip:</strong> Perfect for those who want to secure their existing email workflow</li>
+                </ul>
+                
+                <ul>
+                    <li><strong>Proton Mail:</strong> Privacy-focused email service with built-in encryption (<a href="https://proton.me/mail" target="_blank">Sign up for Proton Mail</a>)</li>
+                    <li>All emails between Proton users are automatically encrypted</li>
+                    <li><strong>Implementation Tip:</strong> Good option if you're willing to switch email providers for enhanced privacy</li>
+                </ul>
 
-                <h3>Vetting Security Tools</h3>
+                                <p><em>Note: I am not sponsored by any of these tools. Stay curious and skeptical about all software tools you use, and always do your own research before implementation.</em></p>
+                </div>
+                
+<h3>Vetting Security Tools</h3>
                 
                 <p>When evaluating security tools, consider these criteria:</p>
                 
@@ -227,7 +248,7 @@ END_BLOG_META
                 <p>Despite the benefits of open source security tools, remain aware of:</p>
                 
                 <ul>
-                    <li><strong>Software Supply Chain Issues:</strong> Even well-respected tools can be compromised if someone manages to sneak malicious code into their components or distribution methods. Think of it like food recalls—sometimes the problem isn't with the restaurant but with an ingredient supplier.</li>
+                    <li><strong>Software Supply Chain Issues:</strong> Even well-respected tools can be compromised if someone manages to sneak malicious code into their components or distribution methods. Think of it like food recalls—sometimes the problem isn't with the restaurant but with an ingredient supplier. A recent example: <a href="https://thehackernews.com/2025/05/malicious-npm-packages-infect-3200.html" target="_blank">malicious npm packages infected over 3,200 projects</a> by targeting the source code itself.</li>
                 </ul>
                 
                 <h3>Who Benefits Most?</h3>
