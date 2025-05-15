@@ -7,7 +7,7 @@
     <atom:link href="https://mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <copyright>© 2025 Matt Rude. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 07 May 2025 11:12:48 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 15 May 2025 14:15:14 -0500</lastBuildDate>
     <category>Technology</category>
     <category>Software Development</category>
     <category>Accessibility</category>
@@ -44,7 +44,7 @@
                     Compartmentalize your digital life so a compromise in one area doesn't spread to everything.</li>
                 </ul>
                 
-                <p>These principles apply universally, whether you're running a corporation or just managing your personal accounts. A practical application: assume any information you share online could potentially be leaked to anyone. This mindset helps you make better decisions about what to share and where.</p>
+                <p>These principles apply universally, whether you're running a corporation or just managing your personal accounts. A practical application: assume any information you share online could potentially be leaked to anyone. This mindset helps you make better decisions about what to share and where.<br><br> The source I used for these Zero Trust principles was CrowdStrike. Ironically, people seem to have <i>zero trust</i> in them as a company after a <a href="https://www.theguardian.com/technology/2024/sep/24/crowdstrike-outage-microsoft-apology" target="_blank">recent software blunder that took down airports and hospitals</a>. </p>
                 
                 <h3>Modern Threats: Phishing and AI Impersonation</h3>
                 
