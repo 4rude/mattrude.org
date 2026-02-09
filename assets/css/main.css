@@ -1,6 +1,6 @@
-/* 
+/*
  * mattrude.org - Main Stylesheet
- * A minimalist black and white design with mint green accents
+ * Workshop-Laboratory: warm neutrals with copper and sage accents
  */
 
 /* Posts connector - horizontal dashed line (now removed) */
@@ -24,19 +24,22 @@
 
 /* Base styles and variables */
 :root {
-    /* Current variables */
-    --color-background: #ffffff;
-    --color-text: #000000;
-    --color-accent: #98FB98; /* Mint Green */
-    --color-light-gray: #f5f5f5;
-    --color-dark-gray: #333333;
+    /* Workshop-Laboratory palette */
+    --color-background: #FAF8F5;        /* Warm off-white, like aged paper */
+    --color-text: #2C2C2C;              /* Deep charcoal, softer than black */
+    --color-accent: #C47832;            /* Warm copper/amber */
+    --color-light-gray: #F0EDE8;        /* Warm light gray */
+    --color-dark-gray: #4A4A4A;         /* Warm dark gray */
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    
-    /* New variables */
-    --color-accent-light: rgba(152, 251, 152, 0.3); /* Lighter mint green for hover states */
-    --color-accent-dark: #74d874; /* Darker mint green for active states */
-    --color-border: #eaeaea;
-    --color-shadow: rgba(0, 0, 0, 0.05);
+    --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+
+    /* Accent variations */
+    --color-accent-light: rgba(196, 120, 50, 0.15); /* Light copper for hover states */
+    --color-accent-dark: #A8612A;       /* Darker copper for active states */
+    --color-secondary: #7A8F6D;         /* Muted sage green */
+    --color-secondary-light: rgba(122, 143, 109, 0.15);
+    --color-border: #E0DCD6;            /* Warm border */
+    --color-shadow: rgba(44, 44, 44, 0.08);
     
     /* Typography */
     --font-size-small: 0.875rem;
@@ -100,26 +103,19 @@ body.loading .page-transition {
   background-color: var(--color-accent-dark);
 }
 
-/* Card component styles */
+/* Card component styles — left-anchored workshop style */
 .card {
-  background-color: var(--color-background);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  background: var(--color-background);
+  border: none;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0;
   padding: var(--space-lg);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding-left: calc(var(--space-lg) + 0.25rem);
+  transition: border-color 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--color-shadow);
-}
-
-.card-accent-left {
-  border-left: 4px solid var(--color-accent);
-}
-
-.card-accent-top {
-  border-top: 4px solid var(--color-accent);
+  border-left-color: var(--color-accent-dark);
 }
 
 /* Reset and base elements */
@@ -224,8 +220,16 @@ footer {
     padding: 2rem 0;
     background-color: var(--color-light-gray);
     text-align: center;
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid var(--color-border);
     margin-top: 3rem;
+}
+
+footer .ai-note {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-dark-gray);
+    margin-top: 0.5rem;
+    margin-bottom: 0;
 }
 
 /* Homepage - Blog listing */
@@ -248,7 +252,8 @@ footer {
 }
 
 .post-meta {
-    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
     color: var(--color-dark-gray);
     margin-bottom: 1rem;
     display: flex;
@@ -295,9 +300,8 @@ footer {
     padding-left: 0.5rem !important;      /* Additional padding between bullet and text */
 }
 
-/* Optional: Style the bullet points with mint green color */
 .post-content ul li::marker {
-    color: var(--color-accent) !important; /* Use your mint green accent color */
+    color: var(--color-accent) !important;
 }
 
 /* Feature list specific styling */
@@ -315,8 +319,8 @@ footer {
 }
 
 .feature-list li::marker {
-    color: var(--color-accent) !important; /* Mint green bullets */
-    font-weight: bold !important;         /* Make bullets more prominent */
+    color: var(--color-accent) !important;
+    font-weight: bold !important;
 }
 
 .post-navigation {
@@ -536,23 +540,23 @@ footer {
 /* Minimalist Table Section */
 .table-section {
     margin: 3rem 0;
-    background-color: #f9f9f9; /* Very subtle light gray background */
+    background-color: var(--color-light-gray);
     border-radius: var(--radius-md);
-    overflow: hidden; /* Keep inner elements contained */
+    overflow: hidden;
 }
 
 /* Table Title */
 .table-title {
     margin: 0;
     padding: 1.5rem;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid var(--color-border);
 }
 
 /* Table Metadata Section */
 .table-meta {
     padding: 1.5rem;
-    border-top: 1px solid #eaeaea;
-    background-color: #f5f5f5;
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-light-gray);
 }
 
 /* Sources styling */
@@ -572,7 +576,7 @@ footer {
 
 .table-notes h5 {
     margin-top: 0;
-    color: #333;
+    color: var(--color-text);
 }
 
 /* Storage table styling */
@@ -594,15 +598,15 @@ footer {
 }
 
 .storage-table thead tr {
-    background-color: var(--color-accent); /* Using mint green variable */
-    color: #333;
+    background-color: var(--color-accent);
+    color: var(--color-background);
 }
 
 .storage-table th, 
 .storage-table td {
     padding: 12px;
     text-align: left;
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--color-border);
 }
 
 .storage-table th:nth-child(5),
@@ -614,11 +618,11 @@ footer {
 }
 
 .storage-table tbody tr:nth-child(odd) {
-    background-color: #f9f9f9;
+    background-color: var(--color-light-gray);
 }
 
 .storage-table tbody tr:nth-child(even) {
-    background-color: #ffffff;
+    background-color: var(--color-background);
 }
 
 .storage-table .cell-webhost {
@@ -712,219 +716,12 @@ footer {
 }
 
 .cost-comparison-table .average-row {
-    background-color: #f0f0f0;
+    background-color: var(--color-light-gray);
     font-weight: bold;
-}
-
-.table-notes {
-    font-size: 14px;
-    color: #666;
-    margin-top: 10px;
 }
 
 .data-comparison {
     margin-bottom: 40px;
-}
-
-/* Annotations styles */
-.annotations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.annotation-card {
-    background-color: var(--color-light-gray);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    border-left: 4px solid var(--color-accent);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.annotation-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px var(--color-shadow);
-}
-
-.annotation-card h2 {
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.annotation-card h2 a {
-    text-decoration: none;
-    color: var(--color-text);
-}
-
-.annotation-card h2 a:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--color-accent);
-    text-decoration-thickness: 2px;
-}
-
-.annotation-card .authors {
-    color: var(--color-dark-gray);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.annotation-card .date {
-    color: var(--color-dark-gray);
-    font-size: 0.85rem;
-    margin-bottom: 0.8rem;
-}
-
-.annotation-card .preview {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.annotation-card .metadata-footer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    margin-top: 1rem;
-}
-
-.annotation-card .tag {
-    background-color: var(--color-accent);
-    color: var(--color-text);
-    padding: 0.2rem 0.6rem;
-    border-radius: 2rem;
-    font-size: 0.8rem;
-    cursor: default;
-}
-
-.annotation-card .topic-tag {
-    background-color: var(--color-dark-gray);
-    color: white;
-    padding: 0.2rem 0.6rem;
-    border-radius: 2rem;
-    font-size: 0.8rem;
-    cursor: default;
-}
-
-/* Annotations controls */
-.annotations-controls {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background-color: var(--color-light-gray);
-    border-radius: var(--radius-md);
-}
-
-#searchInput {
-    width: 100%;
-    max-width: 500px;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    font-size: 1rem;
-}
-
-.filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.filters select {
-    padding: 0.8rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    background-color: var(--color-background);
-    font-size: 0.9rem;
-    min-width: 150px;
-}
-
-/* Individual annotation page styles */
-.annotation .annotation-metadata {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.annotation .metadata-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin: 1rem 0;
-}
-
-.annotation .metadata-item {
-    margin-bottom: 0.5rem;
-}
-
-.annotation .status-badge {
-    background-color: var(--color-accent);
-    color: var(--color-text);
-    padding: 0.2rem 0.6rem;
-    border-radius: 2rem;
-    font-size: 0.85rem;
-}
-
-.annotation .citation-text {
-    padding: 1rem;
-    background-color: var(--color-light-gray);
-    border-left: 3px solid var(--color-accent);
-    font-family: monospace;
-    line-height: 1.5;
-}
-
-.annotation section {
-    margin-bottom: 2rem;
-}
-
-.annotation section h2 {
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-light-gray);
-}
-
-.annotation blockquote {
-    border-left: 3px solid var(--color-accent);
-    padding-left: 1rem;
-    margin: 1rem 0;
-    font-style: italic;
-}
-
-/* Tags and topics in annotations */
-.annotation .tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.annotation .tag {
-    background-color: var(--color-accent);
-    color: var(--color-text);
-    padding: 0.3rem 0.8rem;
-    border-radius: 2rem;
-    font-size: 0.9rem;
-}
-
-.annotation .topic-tag {
-    background-color: var(--color-dark-gray);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 2rem;
-    font-size: 0.9rem;
-}
-
-/* Placeholder message styling */
-.placeholder-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    opacity: 0.8;
-}
-
-.placeholder-message .annotation-card {
-    max-width: 500px;
-    margin: 0 auto;
 }
 
 .quote-section {
