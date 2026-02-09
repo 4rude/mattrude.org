@@ -16,6 +16,12 @@ Thumbs.db
 logs
 *.log
 
+# Project docs (Obsidian vault)
+mattrudeorg_docs/
+
+# AI assistant context
+CLAUDE.md
+
 # Other
 node_modules/
 .cache/
