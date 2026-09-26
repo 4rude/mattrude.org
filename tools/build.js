@@ -11,7 +11,7 @@
  *      posts     homepage post list (left empty when there are no posts)
  *      postnav   newer/older links on each post
  *      corrections  the list on /corrections/, from data/corrections.json
- *      contact   spelled-out email plus GitHub and LinkedIn links
+ *      contact   spelled-out email plus GitHub, Tangled, and LinkedIn links
  * 3. Writes public/_redirects from data/corrections.json.
  * 4. Writes public/feed.xml (generate-feed.js).
  *
@@ -45,6 +45,7 @@ function contactHtml(config) {
   const spelled = `${user} at ${domain.split('.').join(' dot ')}`;
   return `<p><span class="email" data-user="${escapeHtml(user)}" data-domain="${escapeHtml(domain)}">${escapeHtml(spelled)}</span>`
     + ` | <a href="${config.links.github}" target="_blank">GitHub</a>`
+    + ` | <a href="${config.links.tangled}" target="_blank">Tangled</a>`
     + ` | <a href="${config.links.linkedin}" target="_blank">LinkedIn</a></p>`;
 }
 
