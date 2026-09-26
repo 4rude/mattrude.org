@@ -12,8 +12,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const POSTS_DIR = path.join(__dirname, '..', 'blog', 'posts');
-const INDEX_PATH = path.join(__dirname, '..', 'blog', 'post-index.json');
+const POSTS_DIR = path.join(__dirname, '..', 'public', 'blog', 'posts');
+const INDEX_PATH = path.join(__dirname, '..', 'public', 'blog', 'post-index.json');
 
 // Main function
 function generateIndex() {

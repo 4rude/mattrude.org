@@ -7,7 +7,7 @@
     <atom:link href="https://mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <copyright>© 2026 Matt Rude. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 09 Feb 2026 15:15:19 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 13:54:50 -0500</lastBuildDate>
     <category>Technology</category>
     <category>Software Development</category>
     <category>Accessibility</category>
@@ -21,15 +21,15 @@
 
                 <h3>A New Look</h3>
 
-                <p>You might notice the site looks a bit different. I've moved away from the mint green color scheme to something that feels more like me: warm coppers, muted sage, and an off-white background that reminds me of workshop notebooks and kraft paper. I'm calling it the "Workshop-Laboratory" aesthetic because that's how I think about the work I do: part handmade, part technical, always building.</p>
+                <p>I asked <a href="https://www.anthropic.com/claude-opus-4-6-system-card" target="_blank">Claude</a> for three design update versions, chose a cool sounding one, then went through four iterations until it looked more like a tree at the end of fall.</p>
 
                 <h3>Removing Annotations</h3>
 
-                <p>I've removed the annotations section from the site. It was a fun idea and I enjoyed building it, but I'm not going to explore it further. The energy is better spent on writing posts and building things that are more immediately useful. Sometimes knowing when to stop is as important as knowing when to start.</p>
+                <p>I've removed the annotations section from the site. It was a fun idea, but I'm not going to explore it further. Personally, I think the energy is better spent on trying, failing, and learning.</p>
 
                 <h3>On AI and Transparency</h3>
 
-                <p>I want to be upfront about something: earlier versions of this website were built with the help of Anthropic's Claude, an AI assistant. Claude helped with code generation, CSS styling, content structure, and debugging. This current update, including the redesign, resume changes, annotations removal, and this very post, was co-written and fully implemented by Claude Opus 4.6 through <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank">Claude Code</a>. I think that's worth being transparent about.</p>
+                <p>This website was built and updated with the help of Claude. That includes code, styling, content structure, and this post. Every step involves human direction, review, and editing; nothing goes live without my sign-off. I'd recommend the same level of care (or hopefully, more) to others.</p>
 
                 <p>AI tools are powerful, and like any powerful tool, they deserve thoughtful use. CERN recently published their <a href="https://home.cern/news/official-news/knowledge-sharing/general-principles-use-ai-cern" target="_blank">General Principles for the Use of AI</a>, and I think they provide a strong framework that extends well beyond particle physics. Their principles include:</p>
 
@@ -49,11 +49,11 @@
                     <li>I take full responsibility for everything published here, regardless of what tools were used to help create it.</li>
                 </ul>
 
-                <p>This isn't about being against AI. I think AI-assisted development is one of the most exciting developments in making technology more accessible, which is exactly what this site is about. But accessibility and transparency go hand in hand. You deserve to know how things are made.</p>
+                <p>This isn't about being against AI. I think AI-assisted learning and development is some of the most exciting modern technologies to emerge. But accessibility and transparency go hand in hand.</p>
 
                 <h3>What's Next</h3>
 
-                <p>I started at Nagios as a Technical Sales Representative back in June 2025, and I'm enjoying the work. Expect more posts about monitoring, infrastructure, and the practical side of keeping systems running. The core mission hasn't changed: making powerful technology accessible to everyone.</p>
+                <p>I started at Nagios as a Technical Sales Representative back in June 2025, and I'm enjoying the work and the culture. The core mission hasn't changed: making powerful technology accessible to everyone.</p>
 
                 <p>Thanks for reading.</p>
 

@@ -10,9 +10,9 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const INDEX_PATH = path.join(__dirname, '..', 'blog', 'post-index.json');
-const FEED_PATH = path.join(__dirname, '..', 'feed.xml');
-const POSTS_DIR = path.join(__dirname, '..', 'blog', 'posts');
+const INDEX_PATH = path.join(__dirname, '..', 'public', 'blog', 'post-index.json');
+const FEED_PATH = path.join(__dirname, '..', 'public', 'feed.xml');
+const POSTS_DIR = path.join(__dirname, '..', 'public', 'blog', 'posts');
 const SITE_URL = 'https://mattrude.org';
 const FEED_TITLE = 'Matt Rude\'s Blog';
 const FEED_DESCRIPTION = 'Practical guides, tutorials, and insights on building powerful technology solutions without the enterprise price tag. Making technology accessible for everyone.';
