@@ -1,46 +1,4 @@
 {
-  "posts": [
-    {
-      "title": "Site Update: New Look, AI Transparency, and What's Next",
-      "date": "2026-02-09",
-      "description": "A site refresh with a new design direction, a note on removing the annotations section, and a commitment to transparency about AI use in building this website.",
-      "tags": [
-        "Update",
-        "AI"
-      ],
-      "file": "2026-02-09-site-update-and-ai-transparency.html"
-    },
-    {
-      "title": "Security on a Budget: Essential Tools and Practices",
-      "date": "2025-05-01",
-      "edited": "2025-05-15",
-      "description": "Learn practical security measures that don't require enterprise budgets, from zero trust principles to identifying AI deepfakes and free tools that can protect your digital life.",
-      "tags": [
-        "Security",
-        "Tools"
-      ],
-      "file": "2025-05-01-security-on-a-budget.html"
-    },
-    {
-      "title": "Why Technology Is More Affordable Than Ever",
-      "date": "2025-04-17",
-      "description": "An analysis of how web hosting costs have plummeted over the decades, making technology infrastructure more accessible to everyone. This post examines the economic factors that have democratized tech and why it matters for individual creators and small organizations.",
-      "tags": [
-        "Analysis"
-      ],
-      "file": "2025-04-02-why-technology-is-more-affordable-than-ever.html"
-    },
-    {
-      "title": "Launching My Personal Website",
-      "date": "2025-03-28",
-      "description": "Today marks an exciting milestone. I have finally launched my personal website! I'm sharing my journey of creating affordable technology solutions without enterprise-level budgets, challenging common assumptions about cost and expertise requirements.",
-      "tags": [
-        "Introduction"
-      ],
-      "file": "2025-03-25-launching-my-personal-website.html",
-      "edited": "April 10, 2025"
-    }
-  ],
-  "generated": "2026-09-26T18:54:50.650Z",
-  "count": 4
+  "count": 0,
+  "posts": []
 }

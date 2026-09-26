@@ -1,129 +1,73 @@
 /**
  * generate-index.js
- * 
- * This script scans blog post HTML files, extracts metadata from comments,
- * and generates a single JSON index file for improved performance.
- * 
- * After running this script, you should also run generate-feed.js to update the RSS feed:
- * node tools/generate-index.js && node tools/generate-feed.js
+ *
+ * Scans public/blog/posts/*.html, reads the BLOG_META block at the top of
+ * each post, and writes public/blog/post-index.json (newest first).
+ *
+ * Usually run through tools/build.js. Can also run on its own:
+ *   node tools/generate-index.js
  */
 
 const fs = require('fs');
 const path = require('path');
 
-// Configuration
 const POSTS_DIR = path.join(__dirname, '..', 'public', 'blog', 'posts');
 const INDEX_PATH = path.join(__dirname, '..', 'public', 'blog', 'post-index.json');
 
-// Main function
-function generateIndex() {
-  console.log('Generating blog post index...');
-  
+/**
+ * Read BLOG_META from a post's HTML.
+ * Throws if the block is missing or invalid, so a broken post never
+ * silently drops out of the index.
+ */
+function readMeta(html, file) {
+  const match = html.match(/<!--\s*BLOG_META\s*({[\s\S]*?})\s*END_BLOG_META\s*-->/);
+  if (!match) {
+    throw new Error(`${file}: no BLOG_META block`);
+  }
+  let meta;
   try {
-    // Ensure posts directory exists
-    if (!fs.existsSync(POSTS_DIR)) {
-      console.error(`Posts directory not found: ${POSTS_DIR}`);
-      process.exit(1);
-    }
-    
-    // Get all HTML files in the posts directory
-    const postFiles = fs.readdirSync(POSTS_DIR)
-      .filter(file => file.endsWith('.html'));
-    
-    if (postFiles.length === 0) {
-      console.warn('No blog posts found. Index will be empty.');
-    }
-    
-    // Extract metadata from each post
-    const posts = postFiles.map(file => {
-      const filePath = path.join(POSTS_DIR, file);
-      const content = fs.readFileSync(filePath, 'utf8');
-      
-      return extractMetadata(content, file);
+    meta = JSON.parse(match[1]);
+  } catch (e) {
+    throw new Error(`${file}: BLOG_META is not valid JSON (${e.message})`);
+  }
+  if (!meta.title || !/^\d{4}-\d{2}-\d{2}$/.test(meta.date || '')) {
+    throw new Error(`${file}: BLOG_META needs a title and a YYYY-MM-DD date`);
+  }
+  return meta;
+}
+
+/** Build the post list. A missing or empty posts folder means zero posts. */
+function readPosts() {
+  if (!fs.existsSync(POSTS_DIR)) return [];
+
+  const posts = fs.readdirSync(POSTS_DIR)
+    .filter(file => file.endsWith('.html'))
+    .map(file => {
+      const meta = readMeta(fs.readFileSync(path.join(POSTS_DIR, file), 'utf8'), file);
+      return { ...meta, file, slug: file.replace(/\.html$/, '') };
     });
-    
-    // Sort posts by date (newest first)
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    
-    // Create the index object
-    const index = {
-      posts,
-      generated: new Date().toISOString(),
-      count: posts.length
-    };
-    
-    // Write the index file
-    fs.writeFileSync(
-      INDEX_PATH,
-      JSON.stringify(index, null, 2),
-      'utf8'
-    );
-    
-    console.log(`Successfully generated index with ${posts.length} posts.`);
-    console.log(`Index file saved to: ${INDEX_PATH}`);
-    
+
+  // Newest first. YYYY-MM-DD strings sort correctly as text.
+  posts.sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
+  return posts;
+}
+
+function generateIndex() {
+  const posts = readPosts();
+  // No timestamp here, so the file only changes when the posts change.
+  const index = { count: posts.length, posts };
+  fs.writeFileSync(INDEX_PATH, JSON.stringify(index, null, 2) + '\n', 'utf8');
+  console.log(`Index: ${posts.length} post(s) -> ${path.relative(process.cwd(), INDEX_PATH)}`);
+  return posts;
+}
+
+module.exports = { generateIndex, readPosts, readMeta, POSTS_DIR };
+
+if (require.main === module) {
+  try {
+    generateIndex();
   } catch (error) {
-    console.error('Error generating index:', error);
+    console.error(`Error generating index: ${error.message}`);
     process.exit(1);
   }
 }
-
-/**
- * Extract metadata from a blog post HTML file
- * 
- * @param {string} content - HTML content of the blog post
- * @param {string} filename - Name of the blog post file
- * @returns {object} Post metadata
- */
-function extractMetadata(content, filename) {
-  // Try to extract metadata from HTML comment
-  const metaMatch = content.match(/<!--\s*BLOG_META\s*({[\s\S]*?})\s*END_BLOG_META\s*-->/);
-  
-  if (metaMatch && metaMatch[1]) {
-    try {
-    const metadata = JSON.parse(metaMatch[1]);
-    metadata.file = filename;
-    
-    // Check for edit date in HTML content
-    const editDateMatch = content.match(/<span class="edit-date">Edited:\s*(.*?)<\/span>/i);
-    if (editDateMatch && editDateMatch[1]) {
-      metadata.edited = editDateMatch[1].trim();
-    }
-    
-    return metadata;
-    } catch (e) {
-      console.warn(`Error parsing metadata in ${filename}:`, e);
-    }
-  }
-  
-  // Fallback: Extract basic metadata from HTML
-  console.warn(`Using fallback metadata extraction for ${filename}`);
-  
-  const titleMatch = content.match(/<title>(.*?)<\/title>/);
-  const dateMatch = content.match(/<div class="post-meta">([\s\S]*?)<\/div>/);
-  const descriptionMatch = content.match(/<meta name="description" content="(.*?)"\s*\/?>/);
-  
-  // Try to extract edited date from HTML content
-  const editDateMatch = content.match(/<span class="edit-date">Edited:\s*(.*?)<\/span>/i);
-  
-  // Extract date from filename (format: YYYY-MM-DD-title.html)
-  const dateFromFilename = filename.match(/^(\d{4}-\d{2}-\d{2})/);
-  
-  return {
-    title: titleMatch 
-      ? titleMatch[1].replace(' | Matt Rude', '') 
-      : filename.replace('.html', '').replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/-/g, ' '),
-    date: dateMatch 
-      ? dateMatch[1].trim().split('·')[0].trim() // Extract just the first date if multiple exist
-      : (dateFromFilename ? dateFromFilename[1] : 'Unknown date'),
-    edited: editDateMatch ? editDateMatch[1].trim() : '', // Add extracted edit date
-    description: descriptionMatch 
-      ? descriptionMatch[1] 
-      : 'No description available',
-    file: filename,
-    tags: [] // Default empty tags array
-  };
-}
-
-// Run the script
-generateIndex();
