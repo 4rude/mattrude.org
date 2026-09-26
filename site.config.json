@@ -4,5 +4,9 @@
   "links": {
     "github": "https://github.com/4rude",
     "linkedin": "https://www.linkedin.com/in/matthew-rude-dev/"
+  },
+  "contact": {
+    "user": "hello",
+    "domain": "mattrude.org"
   }
 }

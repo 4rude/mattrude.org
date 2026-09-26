@@ -11,6 +11,7 @@
  *      posts     homepage post list (left empty when there are no posts)
  *      postnav   newer/older links on each post
  *      corrections  the list on /corrections/, from data/corrections.json
+ *      contact   spelled-out email plus GitHub and LinkedIn links
  * 3. Writes public/_redirects from data/corrections.json.
  * 4. Writes public/feed.xml (generate-feed.js).
  *
@@ -32,6 +33,19 @@ function footerHtml(config) {
     `<p>&copy; ${year} Matt Rude. Writing licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> unless noted. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>`,
     `<p class="ai-note">Built with the help of AI. <a href="${config.repoUrl}/blob/main/STANDARDS.md">Read more</a></p>`,
   ].join('\n');
+}
+
+/**
+ * Contact line. The address is written as "user at domain dot tld" inside an
+ * element that carries the two parts as data attributes. The full address
+ * never appears in the HTML; blog.js joins it in the browser.
+ */
+function contactHtml(config) {
+  const { user, domain } = config.contact;
+  const spelled = `${user} at ${domain.split('.').join(' dot ')}`;
+  return `<p><span class="email" data-user="${escapeHtml(user)}" data-domain="${escapeHtml(domain)}">${escapeHtml(spelled)}</span>`
+    + ` | <a href="${config.links.github}" target="_blank">GitHub</a>`
+    + ` | <a href="${config.links.linkedin}" target="_blank">LinkedIn</a></p>`;
 }
 
 function postListHtml(posts) {
@@ -145,6 +159,7 @@ function build() {
     posts: () => postListHtml(posts),
     postnav: file => postNavHtml(posts, file),
     corrections: () => correctionsHtml(corrections),
+    contact: () => contactHtml(config),
   };
 
   let changed = 0;
