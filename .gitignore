@@ -22,9 +22,6 @@ vault/
 # Old Obsidian folder (contents moved into vault/, folder awaiting manual deletion)
 mattrudeorg_docs/
 
-# AI assistant context
-CLAUDE.md
-
 # Other
 node_modules/
 .cache/
