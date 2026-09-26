@@ -1,10 +1,11 @@
 <!--
 BLOG_META
 {
-  "title": "Your Post Title",
-  "date": "YYYY-MM-DD",
-  "description": "A brief description of your post for the homepage and RSS feed",
-  "tags": ["tag1", "tag2"]
+  "title": "{{TITLE_JSON}}",
+  "date": "{{DATE}}",
+  "tags": {{TAGS_JSON}},
+  "kind": "{{KIND}}",
+  "source": "{{SOURCE}}"
 }
 END_BLOG_META
 -->
@@ -13,17 +14,12 @@ END_BLOG_META
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Post Title | Matt Rude</title>
-    <meta name="description" content="A brief description of your post for the homepage and RSS feed">
-    
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/assets/css/main.css" as="style">
-    <link rel="preload" href="/assets/js/blog.js" as="script">
-    <link rel="preload" href="/assets/images/favicon/favicon.svg" as="image" type="image/svg+xml">
-    
+    <title>{{TITLE_HTML}} | Matt Rude</title>
+    <meta name="description" content="Matt Rude">
+
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml" />
-    
+    <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml">
+
     <!-- Favicon and app icons -->
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg">
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon/favicon.ico">
@@ -43,61 +39,30 @@ END_BLOG_META
             </nav>
         </div>
     </header>
-    
-    <main class="container blog-post page-transition">
+
+    <main class="container blog-post">
         <article>
             <header class="post-header">
-                <h2>Your Post Title</h2>
-                <div class="post-meta">
-                    <span class="publish-date">YYYY-MM-DD</span>
-                    <!-- Uncomment and fill in the following when you edit the post -->
-                    <!-- 
-                    <span class="edit-divider">·</span>
-                    <span class="edit-date">Edited: YYYY-MM-DD</span>
-                    -->
-                </div>
+                <h2>{{TITLE_HTML}}</h2>
+                <p class="post-meta"><time datetime="{{DATE}}">{{DATE_DISPLAY}}</time></p>
             </header>
-            
+
             <div class="post-content">
-                <!-- Your content goes here -->
-                <p>This is the first paragraph of your blog post. Write your content here.</p>
-                
-                <h3>First Section Heading</h3>
-                
-                <p>More content goes here...</p>
-                
-                <ul class="feature-list">
-                    <li>Feature or point one</li>
-                    <li>Feature or point two</li>
-                    <li>Feature or point three</li>
-                </ul>
-                
-                <h3>Second Section Heading</h3>
-                
-                <p>Conclusion paragraph...</p>
-                
-                <p>— Matt</p>
+<!-- words:post -->
+{{CONTENT}}
+<!-- /words:post -->
             </div>
         </article>
-        
-        <div class="post-navigation">
-            <div class="prev-post">
-                <!-- Will be populated by JavaScript -->
-            </div>
-            <div class="next-post">
-                <!-- Will be populated by JavaScript -->
-            </div>
-        </div>
+
+        <!-- build:postnav -->
+        <!-- /build:postnav -->
     </main>
-    
+
     <footer>
         <div class="container">
-            <p>&copy; 2025 Matt Rude. All rights reserved. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>
-            <p class="ai-note">Built with the help of AI. <a href="/blog/posts/2026-02-09-site-update-and-ai-transparency.html">Read more</a></p>
+            <!-- build:footer -->
+            <!-- /build:footer -->
         </div>
     </footer>
-
-    <!-- Only include blog.js since we've made it self-initializing -->
-    <script src="/assets/js/blog.js"></script>
 </body>
 </html>

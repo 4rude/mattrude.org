@@ -8,11 +8,10 @@
     
     <!-- Preload critical assets -->
     <link rel="preload" href="/assets/css/main.css" as="style">
-    <link rel="preload" href="/assets/js/blog.js" as="script">
     <link rel="preload" href="/assets/images/favicon/favicon.svg" as="image" type="image/svg+xml">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Matt Rude's Blog" href="/feed.xml">
     
     <!-- Favicon and app icons -->
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg">
@@ -31,42 +30,26 @@
                     <li><a href="/resume/">Resume/CV</a></li>
                 </ul>
             </nav>
-            <!-- Mobile nav toggle will be added by JavaScript -->
         </div>
     </header>
     
-    <main class="container page-transition">
+    <main class="container">
         <section class="intro">
             <h2>Software Developer | Data Engineer</h2>
             <p>I build accessible, high-performance technology solutions that democratize digital capabilities for individuals and small organizations. Through tutorials, guides, and practical insights, I help you implement powerful systems without specialized technical expertise.</p>
         </section>
         
-        <!-- Tag filtering section, inspired by Simon's website: https://simonwillison.net/' -->
-        <section class="tags-filter">
-            <h3>Filter by Topic</h3>
-            <div class="tags-container">
-                <button class="tag active" data-tag="all">All Posts</button>
-                <!-- More tags will be added dynamically from the JSON metadata file-->
-            </div>
-        </section>
-        
-        <section class="blog-posts">
-            <h2>Latest Posts<span class="posts-connector" aria-hidden="true"></span></h2>
-            <div class="post-list">
-                <div class="loading-placeholder" role="status" aria-live="polite">Loading posts...</div>
-                <!-- Posts will be loaded dynamically by JavaScript -->
-            </div>
-        </section>
+        <!-- build:posts -->
+        <!-- /build:posts -->
     </main>
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Matt Rude. All rights reserved. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>
-            <p class="ai-note">Built with the help of AI. <a href="/blog/posts/2026-02-09-site-update-and-ai-transparency.html">Read more</a></p>
+            <!-- build:footer -->
+            <p>&copy; 2026 Matt Rude. Writing licensed under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> unless noted. <a href="/feed.xml" class="rss-link" title="Subscribe to RSS feed"><img src="/assets/images/Feed-icon.svg" alt="RSS" class="rss-icon"> RSS Feed</a></p>
+            <p class="ai-note">Built with the help of AI. <a href="https://github.com/4rude/mattrude.org/blob/main/STANDARDS.md">Read more</a></p>
+            <!-- /build:footer -->
         </div>
     </footer>
-    
-    <!-- Only include blog.js since we've made it self-initializing -->
-    <script src="/assets/js/blog.js"></script>
 </body>
 </html>

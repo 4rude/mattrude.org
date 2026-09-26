@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Matt Rude's Blog</title>
-    <description>Practical guides, tutorials, and insights on building powerful technology solutions without the enterprise price tag. Making technology accessible for everyone.</description>
-    <link>https://mattrude.org</link>
-    <atom:link href="https://mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
+    <title>Matt Rude&apos;s Blog</title>
+    <link>https://www.mattrude.org/</link>
+    <description>Matt Rude</description>
+    <atom:link href="https://www.mattrude.org/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
-    <copyright>© 2026 Matt Rude. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 26 Sep 2026 13:58:41 -0500</lastBuildDate>
-    <category>Technology</category>
-    <category>Software Development</category>
-    <category>Accessibility</category>
+    <copyright>© 2026 Matt Rude. Writing licensed under CC BY 4.0 unless noted.</copyright>
   </channel>
 </rss>
