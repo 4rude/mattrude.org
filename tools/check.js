@@ -11,8 +11,9 @@
  *  - the full contact address appears in any file in git, in any commit
  *    message, or a mailto: appears in the served HTML
  *  - anything under vault/ is tracked, or vault/ is not ignored
- *  - a words region doesn't match its vault source (skipped, with a note,
- *    when the vault file isn't on this machine)
+ *  - a words region doesn't match its vault source, apart from marked
+ *    privacy removals (skipped, with a note, when the vault file isn't on
+ *    this machine)
  *  - a corrections reason or intro isn't word for word in
  *    vault/staging/corrections.md (same skip rule)
  */
@@ -150,6 +151,7 @@ function checkWords() {
       const result = verify(fs.readFileSync(sourcePath, 'utf8'), html, region);
       checked++;
       if (!result.ok) fail(`${rel(file)} vs ${source}:\n    ${result.errors.join('\n    ')}`);
+      else if (result.removed.length) note(`${rel(file)}: ${result.removed.length} privacy removal(s); details: node tools/verify.js ${source} ${rel(file)}${region === 'post' ? '' : ' ' + region}`);
     }
   }
   ok(`words regions re-verified against the vault (${checked})`);

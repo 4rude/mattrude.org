@@ -16,8 +16,8 @@ Source for [mattrude.org](https://www.mattrude.org). Plain HTML and CSS, one sma
 
 ## Publishing a post
 
-1. Write the post in `vault/posts/`. When it's done, set `status: ready` and `privacy_reviewed: true`.
-2. In Claude Code, ask Claude to publish it. Claude follows `.claude/skills/publish-post/SKILL.md`: it turns the Markdown into a page, runs `node tools/verify.js` (one changed word fails it), builds, and commits.
+1. Write the post in `vault/posts/`. When it's done, set `status: ready`.
+2. In Claude Code, ask Claude to publish it. Claude follows `.claude/skills/publish-post/SKILL.md`: a privacy pass, then it turns the Markdown into a page, leaving out what can't be published (Obsidian comments, embeds, private details). `node tools/verify.js` confirms every other word matches (one changed word fails it) and lists each removal. Then Claude builds, commits, and reports what was removed. The vault file is never edited.
 3. Push with `tools/push.sh`.
 
 ## Commands

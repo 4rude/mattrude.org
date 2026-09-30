@@ -418,6 +418,39 @@ blockquote footer {
     font-style: normal;
 }
 
+/* Privacy removal marker, shown only inside transcripts and AI quotes */
+.removed {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--color-dark-gray);
+}
+
+/* Footnotes */
+.footnote-ref {
+    font-size: 0.75em;
+    line-height: 0;
+}
+
+.footnote-ref a,
+.footnote-back {
+    text-decoration: none;
+}
+
+.footnotes {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9rem;
+}
+
+.footnotes ol {
+    padding-left: 1.5rem;
+}
+
+.footnotes li {
+    margin-bottom: 0.5rem;
+}
+
 /* Code and tables inside posts */
 .post-content pre {
     font-family: var(--font-mono);
